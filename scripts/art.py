@@ -1,8 +1,10 @@
 import argparse
+import concurrent.futures
 import io
 import json
 import re
 import sys
+import threading
 import time
 import urllib.parse
 
@@ -30,7 +32,7 @@ def cached(name, producer):
     value = producer()
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value))
-    time.sleep(0.4)
+    time.sleep(0.2)
     return value
 
 
@@ -89,31 +91,29 @@ def search_cma(term, page):
 def search_met(term, page):
     def run():
         query = urllib.parse.urlencode({"q": term, "hasImages": "true", "isPublicDomain": "true"})
-        ids = get_json("https://collectionapi.metmuseum.org/public/collection/v1.1/search?" + query).get("objectIDs") or []
-        found = []
-        for object_id in ids[page * 12 : page * 12 + 12]:
-            try:
-                row = get_json(f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}")
-            except Exception:
-                continue
-            time.sleep(0.1)
-            if not row.get("isPublicDomain") or not row.get("primaryImageSmall"):
-                continue
-            found.append(
-                {
-                    "source": f"met:{object_id}",
-                    "title": row.get("title"),
-                    "artist": row.get("artistDisplayName") or None,
-                    "date": row.get("objectDate"),
-                    "kind": (row.get("classification") or "") + " " + (row.get("objectName") or ""),
-                    "museum": "The Metropolitan Museum of Art",
-                    "link": row.get("objectURL"),
-                    "image": row["primaryImageSmall"],
-                }
-            )
-        return found
+        return get_json("https://collectionapi.metmuseum.org/public/collection/v1.1/search?" + query).get("objectIDs") or []
 
-    return cached(f"met_{term}_{page}", run)
+    ids = cached(f"met_{term}", run)
+    return [{"source": f"met:{object_id}", "lazy": object_id, "kind": "", "title": None} for object_id in ids[page * 15 : page * 15 + 15]]
+
+
+def resolve_met(candidate):
+    def run():
+        row = get_json(f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{candidate['lazy']}")
+        if not row.get("isPublicDomain") or not row.get("primaryImageSmall"):
+            return None
+        return {
+            "source": candidate["source"],
+            "title": row.get("title"),
+            "artist": row.get("artistDisplayName") or None,
+            "date": row.get("objectDate"),
+            "kind": (row.get("classification") or "") + " " + (row.get("objectName") or ""),
+            "museum": "The Metropolitan Museum of Art",
+            "link": row.get("objectURL"),
+            "image": row["primaryImageSmall"],
+        }
+
+    return cached(f"metobj_{candidate['lazy']}", run)
 
 
 MUSEUMS = (search_aic, search_cma, search_met)
@@ -217,7 +217,6 @@ def image_bytes(candidate):
     raw = fetch(candidate["image"], binary=True, headers=HEADERS if candidate["source"].startswith("aic") else None)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(raw)
-    time.sleep(0.25)
     return raw
 
 
@@ -235,6 +234,23 @@ def used_sources():
     return {json.loads(path.read_text()).get("source") for path in ART.glob("*.json")}
 
 
+LOCK = threading.Lock()
+
+
+def claim(source, used, rejected):
+    with LOCK:
+        if source in used or source in rejected:
+            return False
+        used.add(source)
+        return True
+
+
+def release(source, used, rejected):
+    with LOCK:
+        used.discard(source)
+        rejected.add(source)
+
+
 def match(quote, used, rejected, attempts):
     seed = int(quote["id"], 16)
     tries = 0
@@ -250,60 +266,66 @@ def match(quote, used, rejected, attempts):
                 if not found:
                     break
                 for candidate in found:
-                    if candidate["source"] in used or candidate["source"] in rejected or SKIP_KINDS.search(candidate["kind"]):
-                        continue
-                    title = candidate["title"] or ""
-                    if SKIP_TITLES.search(title) or (term == quote.get("author") and term.split()[-1].lower() not in title.lower()):
-                        continue
                     if tries >= attempts:
                         return None
-                    tries += 1
+                    if not claim(candidate["source"], used, rejected):
+                        continue
+                    sizes = None
                     try:
-                        sizes = convert(image_bytes(candidate))
+                        if "lazy" in candidate:
+                            candidate = resolve_met(candidate) or candidate
+                        title = candidate.get("title") or ""
+                        named = term == quote.get("author")
+                        fits = "image" in candidate and not SKIP_KINDS.search(candidate["kind"]) and not SKIP_TITLES.search(title)
+                        if fits and (not named or term.split()[-1].lower() in title.lower()):
+                            tries += 1
+                            sizes = convert(image_bytes(candidate))
                     except Exception:
                         sizes = None
                     if not sizes:
-                        rejected.add(candidate["source"])
+                        release(candidate["source"], used, rejected)
                         continue
                     return {"term": term, **candidate, **sizes}
     return None
 
 
-def build(limit, only, attempts):
+def make(quote, used, rejected, attempts):
+    target = ART / f"{quote['id']}.json"
+    found = match(quote, used, rejected, attempts)
+    if not found:
+        print(f"none  {quote['id']}  {quote['text'][:50]}", file=sys.stderr)
+        return 0
+    record = {
+        "id": quote["id"],
+        "title": found["title"] or "Untitled",
+        "artist": found["artist"] or "Unknown artist",
+        "date": found["date"] or "",
+        "museum": found["museum"],
+        "link": found["link"],
+        "source": found["source"],
+        "large": found["large"],
+        "small": found["small"],
+    }
+    target.write_text(json.dumps(record, ensure_ascii=False, indent=1) + "\n")
+    print(f"ok    {quote['id']}  [{found['term']}]  {record['title'][:50]} ({found['source']})", file=sys.stderr)
+    return 1
+
+
+def build(limit, only, attempts, workers):
     ART.mkdir(parents=True, exist_ok=True)
     used, rejected = used_sources(), load_set("rejected.json")
+    todo = [quote for quote in load_quotes() if (not only or quote["id"] in only) and not (ART / f"{quote['id']}.json").exists()]
+    if limit is not None:
+        todo = todo[:limit]
     made = 0
-    for quote in load_quotes():
-        if only and quote["id"] not in only:
-            continue
-        target = ART / f"{quote['id']}.json"
-        if target.exists():
-            continue
-        if limit is not None and made >= limit:
-            break
-        found = match(quote, used, rejected, attempts)
-        if not found:
-            print(f"none  {quote['id']}  {quote['text'][:50]}", file=sys.stderr)
-            continue
-        record = {
-            "id": quote["id"],
-            "title": found["title"] or "Untitled",
-            "artist": found["artist"] or "Unknown artist",
-            "date": found["date"] or "",
-            "museum": found["museum"],
-            "link": found["link"],
-            "source": found["source"],
-            "large": found["large"],
-            "small": found["small"],
-        }
-        target.write_text(json.dumps(record, ensure_ascii=False, indent=1) + "\n")
-        used.add(found["source"])
-        made += 1
-        print(f"ok    {quote['id']}  [{found['term']}]  {record['title'][:50]} ({found['source']})", file=sys.stderr)
-        if made % 20 == 0:
-            save_set("rejected.json", rejected)
+    with concurrent.futures.ThreadPoolExecutor(workers) as pool:
+        for count, result in enumerate(pool.map(lambda quote: make(quote, used, rejected, attempts), todo), 1):
+            made += result
+            if count % 25 == 0:
+                with LOCK:
+                    save_set("rejected.json", rejected)
     save_set("rejected.json", rejected)
-    print(f"made {made} art files", file=sys.stderr)
+    print(f"made {made} art files, {len(todo) - made} quotes still without art", file=sys.stderr)
     return made
 
 
@@ -312,10 +334,11 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int, default=None, help="stop after this many new art files")
     parser.add_argument("--only", action="append", help="quote id to process (repeatable)")
     parser.add_argument("--attempts", type=int, default=10, help="most images to try for one quote")
+    parser.add_argument("--workers", type=int, default=6)
     parser.add_argument("--show", help="print the art for this quote id")
     arguments = parser.parse_args()
     if arguments.show:
         record = json.loads((ART / f"{arguments.show}.json").read_text())
         print("\n".join(record["large"]), "\n\n" + "\n".join(record["small"]), f"\n{record['title']} / {record['artist']} / {record['museum']}")
     else:
-        build(arguments.limit, arguments.only, arguments.attempts)
+        build(arguments.limit, arguments.only, arguments.attempts, arguments.workers)

@@ -1,0 +1,107 @@
+*stoa.txt*    A quote and its own piece of art, every time you open Neovim
+
+==============================================================================
+CONTENTS                                                        *stoa-contents*
+
+    Introduction ............ |stoa-introduction|
+    Setup ................... |stoa-setup|
+    Commands ................ |stoa-commands|
+    Lua API ................. |stoa-api|
+    Dashboards .............. |stoa-dashboards|
+    Highlights .............. |stoa-highlights|
+    Where quotes come from .. |stoa-data|
+
+==============================================================================
+INTRODUCTION                                                *stoa-introduction*
+
+stoa.nvim shows a quote from philosophy, literature, games, film or TV, with
+a piece of braille art that belongs to that quote alone. Quotes do not repeat
+until you have seen the whole pack.
+
+The pack ships with the plugin, so it works offline. Once a day, in the
+background, the plugin checks GitHub for a newer pack. Network errors are
+never shown.
+
+Requires Neovim 0.10 or newer. `curl` is needed only for updates.
+
+==============================================================================
+SETUP                                                              *stoa-setup*
+
+Calling setup is optional. These are the defaults: >lua
+
+    require('stoa').setup {
+      categories = nil,        -- nil for all, or a list such as
+                               -- { 'philosophy', 'literature', 'game', 'movie', 'tv' }
+      dashboard = false,       -- true: show the built-in start screen
+      quote_command = true,    -- false: do not create :Quote
+      sync = {
+        enabled = true,
+        interval = 86400,      -- seconds between update checks
+        timeout = 8,           -- seconds per request
+        art_buffer = 12,       -- art files fetched ahead of time
+        urls = { ... },        -- where the pack is read from
+      },
+      view = { border = 'rounded', title = ' stoa ', wrap = 64 },
+    }
+<
+==============================================================================
+COMMANDS                                                        *stoa-commands*
+
+                                                                *:Stoa* *:Quote*
+:Stoa             Show the current quote and its art in a float.
+                  In the float: `n` next quote, `y` copy, `q` close.
+:Stoa next        Pick a new quote and show it.
+:Stoa home        Reopen the start screen (alpha, dashboard-nvim, snacks,
+                  or the built-in one).
+:Stoa notify      Show the current quote as a notification.
+:Stoa copy        Copy the quote and its attribution.
+:Stoa sync        Check for a newer pack now.
+:Stoa info        Pack version, counts and the result of the last sync.
+
+`:Quote` takes the same arguments.
+
+==============================================================================
+LUA API                                                              *stoa-api*
+
+stoa.current()                                                 *stoa.current()*
+    The quote for this session: >lua
+    {
+      id = 'a1b2c3d4', text = '...', author = '...', work = '...',
+      category = 'philosophy',
+      art = { large = { ... }, small = { ... }, title = '...',
+              artist = '...', museum = '...', link = '...' },
+    }
+<
+stoa.next()          Pick a new quote and return it.           *stoa.next()*
+stoa.art({height})   Art lines that fit in {height} rows.       *stoa.art()*
+stoa.attribution()   "— Author, Work" for the current quote.
+stoa.show()  stoa.notify()  stoa.copy()  stoa.home()  stoa.sync()  stoa.info()
+
+==============================================================================
+DASHBOARDS                                                    *stoa-dashboards*
+
+With `dashboard = true` the plugin draws its own start screen when Neovim
+opens without a file. To feed another dashboard, read |stoa.current()| in its
+config. The README has snippets for alpha-nvim, snacks.nvim and
+dashboard-nvim.
+
+==============================================================================
+HIGHLIGHTS                                                    *stoa-highlights*
+
+    StoaArt       the art              (links to Function)
+    StoaQuote     the quote            (links to Normal)
+    StoaAuthor    the attribution      (links to Comment)
+    StoaHint      credits and key hints (links to NonText)
+    StoaBorder    float border         (links to FloatBorder)
+    StoaTitle     float title          (links to FloatTitle)
+
+==============================================================================
+WHERE QUOTES COME FROM                                              *stoa-data*
+
+Quote text is taken from Wikiquote. Each artwork is a public-domain piece
+from the Art Institute of Chicago, the Cleveland Museum of Art or the
+Metropolitan Museum of Art, converted to braille; each is used for one quote
+only. The whole pack is plain JSON under `data/` and can be used by other
+projects.
+
+ vim:tw=78:ts=8:ft=help:norl:
