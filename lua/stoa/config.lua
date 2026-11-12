@@ -9,6 +9,7 @@ local function defaults()
       enabled = true,
       interval = 86400,
       timeout = 8,
+      art_buffer = 12,
       urls = {
         'https://cdn.jsdelivr.net/gh/itzzsauravp/stoa.nvim@main/data',
         'https://raw.githubusercontent.com/itzzsauravp/stoa.nvim/main/data',

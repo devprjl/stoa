@@ -13,8 +13,8 @@ local fallback = {
   author = 'Marcus Aurelius',
   work = 'Meditations',
   category = 'philosophy',
-  art = { large = {}, small = {} },
 }
+fallback.art = require('stoa.generate').art(fallback.id)
 
 local function valid(quote) return picker.allowed(quote) and type(quote.art) == 'table' end
 
@@ -25,6 +25,7 @@ local function prepare()
     local ok, quote = pcall(picker.pick, current and current.id)
     if ok and quote then store.write(store.state_path 'next.json', quote) end
     pcall(function() require('stoa.sync').maybe() end)
+    pcall(function() require('stoa.sync').top_up() end)
   end, 1500)
 end
 

@@ -51,9 +51,16 @@ function M.art(id)
   if type(id) ~= 'string' or id == '' or id:find '[^%w%-_]' then return nil end
   for _, dir in ipairs { M.synced(), M.bundled() } do
     local art = M.read(('%s/art/%s.json'):format(dir, id))
-    if art and type(art.large) == 'table' and type(art.small) == 'table' then return art end
+    if art and type(art.large) == 'table' and type(art.small) == 'table' and #art.large > 0 then return art end
   end
   return nil
+end
+
+function M.has_art(id)
+  for _, dir in ipairs { M.synced(), M.bundled() } do
+    if vim.fn.filereadable(('%s/art/%s.json'):format(dir, id)) == 1 then return true end
+  end
+  return false
 end
 
 function M.state() return M.read(M.state_path 'state.json') or {} end

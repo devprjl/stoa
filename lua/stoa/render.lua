@@ -35,6 +35,17 @@ function M.art(quote, max_height)
   return {}
 end
 
+function M.credit(quote, width)
+  local art = quote.art or {}
+  if art.generated or not art.title then return nil end
+  local parts = { art.title }
+  if art.artist and art.artist ~= '' and art.artist ~= 'Unknown artist' then parts[#parts + 1] = art.artist end
+  if art.museum then parts[#parts + 1] = art.museum end
+  local text = table.concat(parts, ' · ')
+  if width and width_of(text) > width then text = vim.fn.strcharpart(text, 0, math.max(1, width - 1)) .. '…' end
+  return text
+end
+
 function M.text(quote, width)
   local lines = M.wrap('“' .. quote.text .. '”', math.max(20, math.min(config.options.view.wrap, width)))
   return lines, M.attribution(quote)
@@ -42,8 +53,10 @@ end
 
 function M.build(quote, opts)
   local text, attribution = M.text(quote, opts.width - 4)
-  local reserved = #text + 3 + (opts.footer and 2 or 0)
+  local credit = opts.credit ~= false and M.credit(quote, opts.width - 4) or nil
+  local reserved = #text + 3 + (opts.footer and 2 or 0) + (credit and 2 or 0)
   local art = M.art(quote, opts.height - reserved)
+  if #art == 0 then credit = nil end
 
   local blocks = {}
   local function add(lines, group)
@@ -56,6 +69,10 @@ function M.build(quote, opts)
   add(text, 'StoaQuote')
   add({ '' }, nil)
   add({ attribution }, 'StoaAuthor')
+  if credit then
+    add({ '' }, nil)
+    add({ credit }, 'StoaHint')
+  end
   if opts.footer then
     add({ '' }, nil)
     add({ opts.footer }, 'StoaHint')

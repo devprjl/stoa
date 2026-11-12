@@ -16,20 +16,26 @@ local function write(path, value)
   file:close()
 end
 
-local function pack(dir, version, count, art_hash)
+local function pack(dir, version, count, mark)
   local quotes = {}
   for i = 1, count do
-    quotes[i] = {
-      id = ('q%d'):format(i),
-      text = ('quote %d of pack %d'):format(i, version),
-      author = 'Tester',
-      category = i % 2 == 0 and 'game' or 'philosophy',
-      art = 'bust',
-    }
+    local id = ('q%d'):format(i)
+    quotes[i] = { id = id, text = ('quote %d of pack %d'):format(i, version), author = 'Tester', category = i % 2 == 0 and 'game' or 'philosophy' }
+    write(
+      ('%s/art/%s.json'):format(dir, id),
+      {
+        id = id,
+        title = 'Piece ' .. id,
+        museum = 'Test Museum',
+        source = 'test:' .. id,
+        mark = mark,
+        large = { 'LARGE', 'LARGE', 'LARGE', 'LARGE' },
+        small = { 'SMALL' },
+      }
+    )
   end
   write(dir .. '/quotes.json', quotes)
-  write(dir .. '/art/bust.json', { id = 'bust', large = { 'LARGE', 'LARGE', 'LARGE', 'LARGE' }, small = { 'SMALL' }, hash = art_hash })
-  write(dir .. '/index.json', { version = version, quotes = count, updated = '2026-01-01', art = { bust = art_hash or 'a1' } })
+  write(dir .. '/index.json', { version = version, quotes = count, updated = '2026-01-01', art = count })
 end
 
 local function reset(opts)
@@ -87,6 +93,18 @@ test('picked quotes carry their art', function()
   reset()
   local quote = require('stoa.picker').pick()
   eq(quote.art.small, { 'SMALL' }, 'art')
+  eq(quote.art.source, 'test:' .. quote.id, 'art belongs to the quote')
+end)
+
+test('a quote without an art file gets its own generated art', function()
+  local dirs = reset()
+  vim.fn.delete(dirs.bundled .. '/art', 'rf')
+  local picker = require 'stoa.picker'
+  local first, second = picker.pick(), picker.pick()
+  assert(first.art.generated and second.art.generated, 'generated art used')
+  assert(#first.art.large > 0 and #first.art.small > 0, 'art has lines')
+  assert(not vim.deep_equal(first.art.large, second.art.large), 'two quotes never share generated art')
+  eq(require('stoa.generate').art(first.id).large, first.art.large, 'same quote, same art')
 end)
 
 test('current is stable in a session and next changes it', function()
@@ -123,7 +141,8 @@ end)
 test('render picks art by height and wraps text', function()
   reset()
   local render = require 'stoa.render'
-  local quote = { text = ('word '):rep(40), author = 'A', work = 'W', art = { large = { 'L', 'L', 'L', 'L' }, small = { 'S' } } }
+  local quote = { text = ('word '):rep(40), author = 'A', work = 'W', art = { title = 'T', museum = 'M', large = { 'L', 'L', 'L', 'L' }, small = { 'S' } } }
+  eq(render.credit(quote), 'T · M', 'credit')
   eq(#render.art(quote, 10), 4, 'large art')
   eq(#render.art(quote, 2), 1, 'small art')
   eq(#render.art(quote, 0), 0, 'no art')
@@ -135,14 +154,15 @@ end)
 
 test('sync installs a newer pack from a file url', function()
   local remote = tmp()
-  pack(remote, 5, 9, 'b2')
+  pack(remote, 5, 9, 'remote')
   local dirs = reset { config = { sync = { enabled = true, urls = { 'file://' .. remote } } } }
   local done
   require('stoa.sync').run { on_done = function(ok) done = ok end }
   wait(function() return done ~= nil end)
   eq(done, true, 'sync result')
   eq(#require('stoa.store').quotes(), 9, 'quote count')
-  eq(require('stoa.store').art('bust').hash, 'b2', 'art refreshed')
+  eq(require('stoa.store').art('q8').mark, 'remote', 'art for new quotes downloaded')
+  eq(vim.fn.filereadable(dirs.synced .. '/art/q2.json'), 0, 'art already bundled is not downloaded again')
   eq(vim.fn.filereadable(dirs.synced .. '/index.json'), 1, 'index saved')
 end)
 

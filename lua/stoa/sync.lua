@@ -4,6 +4,7 @@ local store = require 'stoa.store'
 local M = {}
 
 local running = false
+local topping = false
 
 local function decode(content)
   local ok, value = pcall(vim.json.decode, content, { luanil = { object = true, array = true } })
@@ -42,19 +43,6 @@ local function finish(opts, ok, message)
   if opts.on_done then opts.on_done(ok, message) end
 end
 
-local function known_art()
-  local known = {}
-  local bundled = store.read(store.bundled() .. '/index.json') or {}
-  for id, hash in pairs(bundled.art or {}) do
-    known[id] = hash
-  end
-  local synced = store.read(store.synced() .. '/index.json') or {}
-  for id, hash in pairs(synced.art or {}) do
-    if vim.fn.filereadable(('%s/art/%s.json'):format(store.synced(), id)) == 1 then known[id] = hash end
-  end
-  return known
-end
-
 local function download_art(ids, done)
   local index = 0
   local function step()
@@ -68,6 +56,33 @@ local function download_art(ids, done)
     end)
   end
   step()
+end
+
+local function missing_art(limit)
+  local seen = {}
+  for _, id in ipairs(store.state().seen or {}) do
+    seen[id] = true
+  end
+  local ids = {}
+  for _, quote in ipairs(store.quotes()) do
+    if #ids >= limit then break end
+    local id = quote.id
+    if type(id) == 'string' and not id:find '[^%w%-_]' and not seen[id] and not store.has_art(id) then ids[#ids + 1] = id end
+  end
+  return ids
+end
+
+function M.top_up(on_done)
+  local sync = config.options.sync
+  local finish_top_up = on_done or function() end
+  if running or topping or not sync.enabled or #sync.urls == 0 or vim.fn.executable 'curl' ~= 1 then return finish_top_up() end
+  local ids = missing_art(sync.art_buffer or 12)
+  if #ids == 0 then return finish_top_up() end
+  topping = true
+  download_art(ids, function()
+    topping = false
+    finish_top_up()
+  end)
 end
 
 function M.run(opts)
@@ -87,16 +102,10 @@ function M.run(opts)
       local quotes = quotes_content and decode(quotes_content)
       if not quotes or #quotes == 0 then return finish(opts, false, 'offline, using local quotes') end
 
-      local known, missing = known_art(), {}
-      for id, hash in pairs(type(remote.art) == 'table' and remote.art or {}) do
-        if type(id) == 'string' and not id:find '[^%w%-_]' and known[id] ~= hash then missing[#missing + 1] = id end
-      end
-
-      download_art(missing, function()
-        local saved = store.write_raw(store.synced() .. '/quotes.json', quotes_content) and store.write_raw(store.synced() .. '/index.json', index_content)
-        if not saved then return finish(opts, false, 'could not save the new pack') end
-        finish(opts, true, ('updated to pack %d (%d quotes)'):format(remote.version, #quotes))
-      end)
+      local saved = store.write_raw(store.synced() .. '/quotes.json', quotes_content) and store.write_raw(store.synced() .. '/index.json', index_content)
+      if not saved then return finish(opts, false, 'could not save the new pack') end
+      running = false
+      M.top_up(function() finish(opts, true, ('updated to pack %d (%d quotes)'):format(remote.version, #quotes)) end)
     end)
   end)
 end
@@ -112,7 +121,7 @@ function M.info()
   local dir, index = store.pack()
   local state = store.state()
   local lines = {
-    ('pack %s, %s quotes, %s art pieces'):format(index.version or '?', index.quotes or '?', index.art and vim.tbl_count(index.art) or '?'),
+    ('pack %s, %s quotes, %s art pieces'):format(index.version or '?', index.quotes or '?', index.art or '?'),
     ('source: %s'):format(dir == store.bundled() and 'bundled with the plugin' or 'synced from GitHub'),
     ('updated: %s'):format(index.updated or 'unknown'),
     ('seen this cycle: %d'):format(#(state.seen or {})),
