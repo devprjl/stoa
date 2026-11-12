@@ -1,0 +1,3563 @@
+[[source]]
+page = "Marcus Aurelius"
+author = "Marcus Aurelius"
+category = "philosophy"
+art = "marcus-aurelius"
+
+[[source]]
+page = "Seneca the Younger"
+author = "Seneca"
+category = "philosophy"
+art = "seneca"
+
+[[source]]
+page = "Epictetus"
+author = "Epictetus"
+category = "philosophy"
+art = "epictetus"
+
+[[source]]
+page = "Socrates"
+author = "Socrates"
+category = "philosophy"
+art = "socrates"
+
+[[source]]
+page = "Plato"
+author = "Plato"
+category = "philosophy"
+art = "plato"
+
+[[source]]
+page = "Aristotle"
+author = "Aristotle"
+category = "philosophy"
+art = "aristotle"
+
+[[source]]
+page = "Epicurus"
+author = "Epicurus"
+category = "philosophy"
+art = "epicurus"
+
+[[source]]
+page = "Diogenes of Sinope"
+author = "Diogenes"
+category = "philosophy"
+art = "diogenes"
+
+[[source]]
+page = "Heraclitus"
+author = "Heraclitus"
+category = "philosophy"
+art = "heraclitus"
+
+[[source]]
+page = "Laozi"
+author = "Lao Tzu"
+category = "philosophy"
+art = "lao-tzu"
+
+[[source]]
+page = "Confucius"
+author = "Confucius"
+category = "philosophy"
+art = "confucius"
+
+[[source]]
+page = "Sun Tzu"
+author = "Sun Tzu"
+category = "philosophy"
+art = "sun-tzu"
+
+[[source]]
+page = "Gautama Buddha"
+author = "Buddha"
+category = "philosophy"
+art = "buddha"
+
+[[source]]
+page = "Rumi"
+author = "Rumi"
+category = "philosophy"
+art = "rumi"
+
+[[source]]
+page = "Miyamoto Musashi"
+author = "Miyamoto Musashi"
+category = "philosophy"
+art = "miyamoto-musashi"
+
+[[source]]
+page = "Friedrich Nietzsche"
+author = "Friedrich Nietzsche"
+category = "philosophy"
+art = "friedrich-nietzsche"
+
+[[source]]
+page = "Arthur Schopenhauer"
+author = "Arthur Schopenhauer"
+category = "philosophy"
+art = "arthur-schopenhauer"
+
+[[source]]
+page = "Immanuel Kant"
+author = "Immanuel Kant"
+category = "philosophy"
+art = "immanuel-kant"
+
+[[source]]
+page = "Søren Kierkegaard"
+author = "Søren Kierkegaard"
+category = "philosophy"
+art = "sren-kierkegaard"
+
+[[source]]
+page = "Baruch Spinoza"
+author = "Baruch Spinoza"
+category = "philosophy"
+art = "baruch-spinoza"
+
+[[source]]
+page = "Blaise Pascal"
+author = "Blaise Pascal"
+category = "philosophy"
+art = "blaise-pascal"
+
+[[source]]
+page = "René Descartes"
+author = "René Descartes"
+category = "philosophy"
+art = "rene-descartes"
+
+[[source]]
+page = "Voltaire"
+author = "Voltaire"
+category = "philosophy"
+art = "voltaire"
+
+[[source]]
+page = "Michel de Montaigne"
+author = "Michel de Montaigne"
+category = "philosophy"
+art = "michel-de-montaigne"
+
+[[source]]
+page = "Ralph Waldo Emerson"
+author = "Ralph Waldo Emerson"
+category = "philosophy"
+art = "ralph-waldo-emerson"
+
+[[source]]
+page = "Henry David Thoreau"
+author = "Henry David Thoreau"
+category = "philosophy"
+art = "henry-david-thoreau"
+
+[[source]]
+page = "William James"
+author = "William James"
+category = "philosophy"
+art = "william-james"
+
+[[source]]
+page = "Zhuangzi"
+author = "Zhuangzi"
+category = "philosophy"
+art = "zhuangzi"
+
+[[source]]
+page = "Cicero"
+author = "Cicero"
+category = "philosophy"
+art = "cicero"
+
+[[source]]
+page = "Francis Bacon"
+author = "Francis Bacon"
+category = "philosophy"
+art = "francis-bacon"
+
+[[source]]
+page = "John Stuart Mill"
+author = "John Stuart Mill"
+category = "philosophy"
+art = "john-stuart-mill"
+
+[[source]]
+page = "David Hume"
+author = "David Hume"
+category = "philosophy"
+art = "david-hume"
+
+[[source]]
+page = "Jean-Jacques Rousseau"
+author = "Jean-Jacques Rousseau"
+category = "philosophy"
+art = "jean-jacques-rousseau"
+
+[[source]]
+page = "Niccolò Machiavelli"
+author = "Niccolò Machiavelli"
+category = "philosophy"
+art = "niccolo-machiavelli"
+
+[[source]]
+page = "Boethius"
+author = "Boethius"
+category = "philosophy"
+art = "boethius"
+
+[[source]]
+page = "Plutarch"
+author = "Plutarch"
+category = "philosophy"
+art = "plutarch"
+
+[[source]]
+page = "Lucretius"
+author = "Lucretius"
+category = "philosophy"
+art = "lucretius"
+
+[[source]]
+page = "Kahlil Gibran"
+author = "Kahlil Gibran"
+category = "philosophy"
+art = "kahlil-gibran"
+
+[[source]]
+page = "Thomas Hobbes"
+author = "Thomas Hobbes"
+category = "philosophy"
+art = "thomas-hobbes"
+
+[[source]]
+page = "John Locke"
+author = "John Locke"
+category = "philosophy"
+art = "john-locke"
+
+[[source]]
+page = "Georg Wilhelm Friedrich Hegel"
+author = "Hegel"
+category = "philosophy"
+art = "hegel"
+
+[[source]]
+page = "Mencius"
+author = "Mencius"
+category = "philosophy"
+art = "mencius"
+
+[[source]]
+page = "Pythagoras"
+author = "Pythagoras"
+category = "philosophy"
+art = "pythagoras"
+
+[[source]]
+page = "Democritus"
+author = "Democritus"
+category = "philosophy"
+art = "democritus"
+
+[[source]]
+page = "Thales"
+author = "Thales"
+category = "philosophy"
+art = "thales"
+
+[[source]]
+page = "Zeno of Citium"
+author = "Zeno of Citium"
+category = "philosophy"
+art = "zeno-of-citium"
+
+[[source]]
+page = "Musonius Rufus"
+author = "Musonius Rufus"
+category = "philosophy"
+art = "musonius-rufus"
+
+[[source]]
+page = "Augustine of Hippo"
+author = "Augustine"
+category = "philosophy"
+art = "augustine"
+
+[[source]]
+page = "Thomas Aquinas"
+author = "Thomas Aquinas"
+category = "philosophy"
+art = "thomas-aquinas"
+
+[[source]]
+page = "Erasmus"
+author = "Erasmus"
+category = "philosophy"
+art = "erasmus"
+
+[[source]]
+page = "Giordano Bruno"
+author = "Giordano Bruno"
+category = "philosophy"
+art = "giordano-bruno"
+
+[[source]]
+page = "Gottfried Leibniz"
+author = "Gottfried Leibniz"
+category = "philosophy"
+art = "gottfried-leibniz"
+
+[[source]]
+page = "Adam Smith"
+author = "Adam Smith"
+category = "philosophy"
+art = "adam-smith"
+
+[[source]]
+page = "Edmund Burke"
+author = "Edmund Burke"
+category = "philosophy"
+art = "edmund-burke"
+
+[[source]]
+page = "Thomas Paine"
+author = "Thomas Paine"
+category = "philosophy"
+art = "thomas-paine"
+
+[[source]]
+page = "Benjamin Franklin"
+author = "Benjamin Franklin"
+category = "philosophy"
+art = "benjamin-franklin"
+
+[[source]]
+page = "Abraham Lincoln"
+author = "Abraham Lincoln"
+category = "philosophy"
+art = "abraham-lincoln"
+
+[[source]]
+page = "Leonardo da Vinci"
+author = "Leonardo da Vinci"
+category = "philosophy"
+art = "leonardo-da-vinci"
+
+[[source]]
+page = "Galileo Galilei"
+author = "Galileo Galilei"
+category = "philosophy"
+art = "galileo-galilei"
+
+[[source]]
+page = "Isaac Newton"
+author = "Isaac Newton"
+category = "philosophy"
+art = "isaac-newton"
+
+[[source]]
+page = "Charles Darwin"
+author = "Charles Darwin"
+category = "philosophy"
+art = "charles-darwin"
+
+[[source]]
+page = "Marie Curie"
+author = "Marie Curie"
+category = "philosophy"
+art = "marie-curie"
+
+[[source]]
+page = "Nikola Tesla"
+author = "Nikola Tesla"
+category = "philosophy"
+art = "nikola-tesla"
+
+[[source]]
+page = "Florence Nightingale"
+author = "Florence Nightingale"
+category = "philosophy"
+art = "florence-nightingale"
+
+[[source]]
+page = "Frederick Douglass"
+author = "Frederick Douglass"
+category = "philosophy"
+art = "frederick-douglass"
+
+[[source]]
+page = "Mary Wollstonecraft"
+author = "Mary Wollstonecraft"
+category = "philosophy"
+art = "mary-wollstonecraft"
+
+[[source]]
+page = "Hypatia"
+author = "Hypatia"
+category = "philosophy"
+art = "hypatia"
+
+[[source]]
+page = "Sappho"
+author = "Sappho"
+category = "philosophy"
+art = "sappho"
+
+[[source]]
+page = "Chanakya"
+author = "Chanakya"
+category = "philosophy"
+art = "chanakya"
+
+[[source]]
+page = "Adi Shankara"
+author = "Adi Shankara"
+category = "philosophy"
+art = "adi-shankara"
+
+[[source]]
+page = "Kabir"
+author = "Kabir"
+category = "philosophy"
+art = "kabir"
+
+[[source]]
+page = "Guru Nanak"
+author = "Guru Nanak"
+category = "philosophy"
+art = "guru-nanak"
+
+[[source]]
+page = "Swami Vivekananda"
+author = "Swami Vivekananda"
+category = "philosophy"
+art = "swami-vivekananda"
+
+[[source]]
+page = "Rabindranath Tagore"
+author = "Rabindranath Tagore"
+category = "philosophy"
+art = "rabindranath-tagore"
+
+[[source]]
+page = "Dōgen"
+author = "Dōgen"
+category = "philosophy"
+art = "dogen"
+
+[[source]]
+page = "Hakuin Ekaku"
+author = "Hakuin Ekaku"
+category = "philosophy"
+art = "hakuin-ekaku"
+
+[[source]]
+page = "Yamamoto Tsunetomo"
+author = "Yamamoto Tsunetomo"
+category = "philosophy"
+art = "yamamoto-tsunetomo"
+
+[[source]]
+page = "Takuan Sōhō"
+author = "Takuan Sōhō"
+category = "philosophy"
+art = "takuan-soho"
+
+[[source]]
+page = "Xunzi"
+author = "Xunzi"
+category = "philosophy"
+art = "xunzi"
+
+[[source]]
+page = "Han Fei"
+author = "Han Fei"
+category = "philosophy"
+art = "han-fei"
+
+[[source]]
+page = "Mozi"
+author = "Mozi"
+category = "philosophy"
+art = "mozi"
+
+[[source]]
+page = "Al-Ghazali"
+author = "Al-Ghazali"
+category = "philosophy"
+art = "al-ghazali"
+
+[[source]]
+page = "Ibn Khaldun"
+author = "Ibn Khaldun"
+category = "philosophy"
+art = "ibn-khaldun"
+
+[[source]]
+page = "Avicenna"
+author = "Avicenna"
+category = "philosophy"
+art = "avicenna"
+
+[[source]]
+page = "Averroes"
+author = "Averroes"
+category = "philosophy"
+art = "averroes"
+
+[[source]]
+page = "Maimonides"
+author = "Maimonides"
+category = "philosophy"
+art = "maimonides"
+
+[[source]]
+page = "Omar Khayyám"
+author = "Omar Khayyam"
+category = "philosophy"
+art = "omar-khayyam"
+
+[[source]]
+page = "Hafez"
+author = "Hafez"
+category = "philosophy"
+art = "hafez"
+
+[[source]]
+page = "Saadi"
+author = "Saadi"
+category = "philosophy"
+art = "saadi"
+
+[[source]]
+page = "Publilius Syrus"
+author = "Publilius Syrus"
+category = "philosophy"
+art = "publilius-syrus"
+
+[[source]]
+page = "Horace"
+author = "Horace"
+category = "philosophy"
+art = "horace"
+
+[[source]]
+page = "Tacitus"
+author = "Tacitus"
+category = "philosophy"
+art = "tacitus"
+
+[[source]]
+page = "Thucydides"
+author = "Thucydides"
+category = "philosophy"
+art = "thucydides"
+
+[[source]]
+page = "Herodotus"
+author = "Herodotus"
+category = "philosophy"
+art = "herodotus"
+
+[[source]]
+page = "Xenophon"
+author = "Xenophon"
+category = "philosophy"
+art = "xenophon"
+
+[[source]]
+page = "Aesop"
+author = "Aesop"
+category = "philosophy"
+art = "aesop"
+
+[[source]]
+page = "Hesiod"
+author = "Hesiod"
+category = "philosophy"
+art = "hesiod"
+
+[[source]]
+page = "Pindar"
+author = "Pindar"
+category = "philosophy"
+art = "pindar"
+
+[[source]]
+page = "Sophocles"
+author = "Sophocles"
+category = "philosophy"
+art = "sophocles"
+
+[[source]]
+page = "Euripides"
+author = "Euripides"
+category = "philosophy"
+art = "euripides"
+
+[[source]]
+page = "Aeschylus"
+author = "Aeschylus"
+category = "philosophy"
+art = "aeschylus"
+
+[[source]]
+page = "Antisthenes"
+author = "Antisthenes"
+category = "philosophy"
+art = "antisthenes"
+
+[[source]]
+page = "Empedocles"
+author = "Empedocles"
+category = "philosophy"
+art = "empedocles"
+
+[[source]]
+page = "Parmenides"
+author = "Parmenides"
+category = "philosophy"
+art = "parmenides"
+
+[[source]]
+page = "Protagoras"
+author = "Protagoras"
+category = "philosophy"
+art = "protagoras"
+
+[[source]]
+page = "Plotinus"
+author = "Plotinus"
+category = "philosophy"
+art = "plotinus"
+
+[[source]]
+page = "Baltasar Gracián"
+author = "Baltasar Gracián"
+category = "philosophy"
+art = "baltasar-gracian"
+
+[[source]]
+page = "François de La Rochefoucauld"
+author = "La Rochefoucauld"
+category = "philosophy"
+art = "la-rochefoucauld"
+
+[[source]]
+page = "Jean de La Bruyère"
+author = "La Bruyère"
+category = "philosophy"
+art = "la-bruyere"
+
+[[source]]
+page = "Georg Christoph Lichtenberg"
+author = "Lichtenberg"
+category = "philosophy"
+art = "lichtenberg"
+
+[[source]]
+page = "Novalis"
+author = "Novalis"
+category = "philosophy"
+art = "novalis"
+
+[[source]]
+page = "Friedrich Schiller"
+author = "Friedrich Schiller"
+category = "philosophy"
+art = "friedrich-schiller"
+
+[[source]]
+page = "Johann Gottlieb Fichte"
+author = "Fichte"
+category = "philosophy"
+art = "fichte"
+
+[[source]]
+page = "Ludwig Feuerbach"
+author = "Ludwig Feuerbach"
+category = "philosophy"
+art = "ludwig-feuerbach"
+
+[[source]]
+page = "Max Stirner"
+author = "Max Stirner"
+category = "philosophy"
+art = "max-stirner"
+
+[[source]]
+page = "William Godwin"
+author = "William Godwin"
+category = "philosophy"
+art = "william-godwin"
+
+[[source]]
+page = "Jeremy Bentham"
+author = "Jeremy Bentham"
+category = "philosophy"
+art = "jeremy-bentham"
+
+[[source]]
+page = "Auguste Comte"
+author = "Auguste Comte"
+category = "philosophy"
+art = "auguste-comte"
+
+[[source]]
+page = "Herbert Spencer"
+author = "Herbert Spencer"
+category = "philosophy"
+art = "herbert-spencer"
+
+[[source]]
+page = "Henri-Frédéric Amiel"
+author = "Amiel"
+category = "philosophy"
+art = "amiel"
+
+[[source]]
+page = "Thomas Carlyle"
+author = "Thomas Carlyle"
+category = "philosophy"
+art = "thomas-carlyle"
+
+[[source]]
+page = "John Ruskin"
+author = "John Ruskin"
+category = "philosophy"
+art = "john-ruskin"
+
+[[source]]
+page = "Thomas Henry Huxley"
+author = "Thomas Henry Huxley"
+category = "philosophy"
+art = "thomas-henry-huxley"
+
+[[source]]
+page = "William Kingdon Clifford"
+author = "William Kingdon Clifford"
+category = "philosophy"
+art = "william-kingdon-clifford"
+
+[[source]]
+page = "Charles Sanders Peirce"
+author = "Charles Sanders Peirce"
+category = "philosophy"
+art = "charles-sanders-peirce"
+
+[[source]]
+page = "Josiah Royce"
+author = "Josiah Royce"
+category = "philosophy"
+art = "josiah-royce"
+
+[[source]]
+page = "George Santayana"
+author = "George Santayana"
+category = "philosophy"
+art = "george-santayana"
+
+[[source]]
+page = "Henri Bergson"
+author = "Henri Bergson"
+category = "philosophy"
+art = "henri-bergson"
+
+[[source]]
+page = "Miguel de Unamuno"
+author = "Miguel de Unamuno"
+category = "philosophy"
+art = "miguel-de-unamuno"
+
+[[source]]
+page = "Vladimir Solovyov"
+author = "Vladimir Solovyov"
+category = "philosophy"
+art = "vladimir-solovyov"
+
+[[source]]
+page = "Nikolai Berdyaev"
+author = "Nikolai Berdyaev"
+category = "philosophy"
+art = "nikolai-berdyaev"
+
+[[source]]
+page = "Fyodor Dostoyevsky"
+author = "Fyodor Dostoevsky"
+category = "literature"
+art = "fyodor-dostoevsky"
+
+[[source]]
+page = "Leo Tolstoy"
+author = "Leo Tolstoy"
+category = "literature"
+art = "leo-tolstoy"
+
+[[source]]
+page = "William Shakespeare"
+author = "William Shakespeare"
+category = "literature"
+art = "william-shakespeare"
+
+[[source]]
+page = "Oscar Wilde"
+author = "Oscar Wilde"
+category = "literature"
+art = "oscar-wilde"
+
+[[source]]
+page = "Mark Twain"
+author = "Mark Twain"
+category = "literature"
+art = "mark-twain"
+
+[[source]]
+page = "Johann Wolfgang von Goethe"
+author = "Goethe"
+category = "literature"
+art = "goethe"
+
+[[source]]
+page = "Victor Hugo"
+author = "Victor Hugo"
+category = "literature"
+art = "victor-hugo"
+
+[[source]]
+page = "Franz Kafka"
+author = "Franz Kafka"
+category = "literature"
+art = "franz-kafka"
+
+[[source]]
+page = "Herman Melville"
+author = "Herman Melville"
+category = "literature"
+art = "herman-melville"
+
+[[source]]
+page = "Jane Austen"
+author = "Jane Austen"
+category = "literature"
+art = "jane-austen"
+
+[[source]]
+page = "Charles Dickens"
+author = "Charles Dickens"
+category = "literature"
+art = "charles-dickens"
+
+[[source]]
+page = "Homer"
+author = "Homer"
+category = "literature"
+art = "homer"
+
+[[source]]
+page = "Dante Alighieri"
+author = "Dante Alighieri"
+category = "literature"
+art = "dante-alighieri"
+
+[[source]]
+page = "Walt Whitman"
+author = "Walt Whitman"
+category = "literature"
+art = "walt-whitman"
+
+[[source]]
+page = "Emily Dickinson"
+author = "Emily Dickinson"
+category = "literature"
+art = "emily-dickinson"
+
+[[source]]
+page = "Edgar Allan Poe"
+author = "Edgar Allan Poe"
+category = "literature"
+art = "edgar-allan-poe"
+
+[[source]]
+page = "Rainer Maria Rilke"
+author = "Rainer Maria Rilke"
+category = "literature"
+art = "rainer-maria-rilke"
+
+[[source]]
+page = "Anton Chekhov"
+author = "Anton Chekhov"
+category = "literature"
+art = "anton-chekhov"
+
+[[source]]
+page = "Virgil"
+author = "Virgil"
+category = "literature"
+art = "virgil"
+
+[[source]]
+page = "Ovid"
+author = "Ovid"
+category = "literature"
+art = "ovid"
+
+[[source]]
+page = "Miguel de Cervantes"
+author = "Miguel de Cervantes"
+category = "literature"
+art = "miguel-de-cervantes"
+
+[[source]]
+page = "John Milton"
+author = "John Milton"
+category = "literature"
+art = "john-milton"
+
+[[source]]
+page = "William Blake"
+author = "William Blake"
+category = "literature"
+art = "william-blake"
+
+[[source]]
+page = "Mary Shelley"
+author = "Mary Shelley"
+category = "literature"
+art = "mary-shelley"
+
+[[source]]
+page = "Robert Louis Stevenson"
+author = "Robert Louis Stevenson"
+category = "literature"
+art = "robert-louis-stevenson"
+
+[[source]]
+page = "Lord Byron"
+author = "Lord Byron"
+category = "literature"
+art = "lord-byron"
+
+[[source]]
+page = "Percy Bysshe Shelley"
+author = "Percy Bysshe Shelley"
+category = "literature"
+art = "percy-bysshe-shelley"
+
+[[source]]
+page = "John Keats"
+author = "John Keats"
+category = "literature"
+art = "john-keats"
+
+[[source]]
+page = "William Wordsworth"
+author = "William Wordsworth"
+category = "literature"
+art = "william-wordsworth"
+
+[[source]]
+page = "Samuel Taylor Coleridge"
+author = "Samuel Taylor Coleridge"
+category = "literature"
+art = "samuel-taylor-coleridge"
+
+[[source]]
+page = "Alfred, Lord Tennyson"
+author = "Alfred Tennyson"
+category = "literature"
+art = "alfred-tennyson"
+
+[[source]]
+page = "Robert Browning"
+author = "Robert Browning"
+category = "literature"
+art = "robert-browning"
+
+[[source]]
+page = "Emily Brontë"
+author = "Emily Brontë"
+category = "literature"
+art = "emily-bronte"
+
+[[source]]
+page = "Charlotte Brontë"
+author = "Charlotte Brontë"
+category = "literature"
+art = "charlotte-bronte"
+
+[[source]]
+page = "George Eliot"
+author = "George Eliot"
+category = "literature"
+art = "george-eliot"
+
+[[source]]
+page = "Thomas Hardy"
+author = "Thomas Hardy"
+category = "literature"
+art = "thomas-hardy"
+
+[[source]]
+page = "Joseph Conrad"
+author = "Joseph Conrad"
+category = "literature"
+art = "joseph-conrad"
+
+[[source]]
+page = "Jack London"
+author = "Jack London"
+category = "literature"
+art = "jack-london"
+
+[[source]]
+page = "Henry James"
+author = "Henry James"
+category = "literature"
+art = "henry-james"
+
+[[source]]
+page = "Nathaniel Hawthorne"
+author = "Nathaniel Hawthorne"
+category = "literature"
+art = "nathaniel-hawthorne"
+
+[[source]]
+page = "Lewis Carroll"
+author = "Lewis Carroll"
+category = "literature"
+art = "lewis-carroll"
+
+[[source]]
+page = "Jules Verne"
+author = "Jules Verne"
+category = "literature"
+art = "jules-verne"
+
+[[source]]
+page = "Alexandre Dumas"
+author = "Alexandre Dumas"
+category = "literature"
+art = "alexandre-dumas"
+
+[[source]]
+page = "Honoré de Balzac"
+author = "Honoré de Balzac"
+category = "literature"
+art = "honore-de-balzac"
+
+[[source]]
+page = "Gustave Flaubert"
+author = "Gustave Flaubert"
+category = "literature"
+art = "gustave-flaubert"
+
+[[source]]
+page = "Stendhal"
+author = "Stendhal"
+category = "literature"
+art = "stendhal"
+
+[[source]]
+page = "Charles Baudelaire"
+author = "Charles Baudelaire"
+category = "literature"
+art = "charles-baudelaire"
+
+[[source]]
+page = "Arthur Rimbaud"
+author = "Arthur Rimbaud"
+category = "literature"
+art = "arthur-rimbaud"
+
+[[source]]
+page = "Alexander Pushkin"
+author = "Alexander Pushkin"
+category = "literature"
+art = "alexander-pushkin"
+
+[[source]]
+page = "Nikolai Gogol"
+author = "Nikolai Gogol"
+category = "literature"
+art = "nikolai-gogol"
+
+[[source]]
+page = "Ivan Turgenev"
+author = "Ivan Turgenev"
+category = "literature"
+art = "ivan-turgenev"
+
+[[source]]
+page = "Maxim Gorky"
+author = "Maxim Gorky"
+category = "literature"
+art = "maxim-gorky"
+
+[[source]]
+page = "Henrik Ibsen"
+author = "Henrik Ibsen"
+category = "literature"
+art = "henrik-ibsen"
+
+[[source]]
+page = "August Strindberg"
+author = "August Strindberg"
+category = "literature"
+art = "august-strindberg"
+
+[[source]]
+page = "Hans Christian Andersen"
+author = "Hans Christian Andersen"
+category = "literature"
+art = "hans-christian-andersen"
+
+[[source]]
+page = "Heinrich Heine"
+author = "Heinrich Heine"
+category = "literature"
+art = "heinrich-heine"
+
+[[source]]
+page = "Friedrich Hölderlin"
+author = "Friedrich Hölderlin"
+category = "literature"
+art = "friedrich-holderlin"
+
+[[source]]
+page = "Giacomo Leopardi"
+author = "Giacomo Leopardi"
+category = "literature"
+art = "giacomo-leopardi"
+
+[[source]]
+page = "Petrarch"
+author = "Petrarch"
+category = "literature"
+art = "petrarch"
+
+[[source]]
+page = "Giovanni Boccaccio"
+author = "Giovanni Boccaccio"
+category = "literature"
+art = "giovanni-boccaccio"
+
+[[source]]
+page = "Geoffrey Chaucer"
+author = "Geoffrey Chaucer"
+category = "literature"
+art = "geoffrey-chaucer"
+
+[[source]]
+page = "Christopher Marlowe"
+author = "Christopher Marlowe"
+category = "literature"
+art = "christopher-marlowe"
+
+[[source]]
+page = "Ben Jonson"
+author = "Ben Jonson"
+category = "literature"
+art = "ben-jonson"
+
+[[source]]
+page = "John Donne"
+author = "John Donne"
+category = "literature"
+art = "john-donne"
+
+[[source]]
+page = "Alexander Pope"
+author = "Alexander Pope"
+category = "literature"
+art = "alexander-pope"
+
+[[source]]
+page = "Jonathan Swift"
+author = "Jonathan Swift"
+category = "literature"
+art = "jonathan-swift"
+
+[[source]]
+page = "Samuel Johnson"
+author = "Samuel Johnson"
+category = "literature"
+art = "samuel-johnson"
+
+[[source]]
+page = "Daniel Defoe"
+author = "Daniel Defoe"
+category = "literature"
+art = "daniel-defoe"
+
+[[source]]
+page = "Laurence Sterne"
+author = "Laurence Sterne"
+category = "literature"
+art = "laurence-sterne"
+
+[[source]]
+page = "Henry Fielding"
+author = "Henry Fielding"
+category = "literature"
+art = "henry-fielding"
+
+[[source]]
+page = "Walter Scott"
+author = "Walter Scott"
+category = "literature"
+art = "walter-scott"
+
+[[source]]
+page = "Washington Irving"
+author = "Washington Irving"
+category = "literature"
+art = "washington-irving"
+
+[[source]]
+page = "James Fenimore Cooper"
+author = "James Fenimore Cooper"
+category = "literature"
+art = "james-fenimore-cooper"
+
+[[source]]
+page = "Harriet Beecher Stowe"
+author = "Harriet Beecher Stowe"
+category = "literature"
+art = "harriet-beecher-stowe"
+
+[[source]]
+page = "Louisa May Alcott"
+author = "Louisa May Alcott"
+category = "literature"
+art = "louisa-may-alcott"
+
+[[source]]
+page = "Stephen Crane"
+author = "Stephen Crane"
+category = "literature"
+art = "stephen-crane"
+
+[[source]]
+page = "Ambrose Bierce"
+author = "Ambrose Bierce"
+category = "literature"
+art = "ambrose-bierce"
+
+[[source]]
+page = "H. P. Lovecraft"
+author = "H. P. Lovecraft"
+category = "literature"
+art = "h-p-lovecraft"
+
+[[source]]
+page = "Arthur Conan Doyle"
+author = "Arthur Conan Doyle"
+category = "literature"
+art = "arthur-conan-doyle"
+
+[[source]]
+page = "Bram Stoker"
+author = "Bram Stoker"
+category = "literature"
+art = "bram-stoker"
+
+[[source]]
+page = "H. G. Wells"
+author = "H. G. Wells"
+category = "literature"
+art = "h-g-wells"
+
+[[source]]
+page = "Rudyard Kipling"
+author = "Rudyard Kipling"
+category = "literature"
+art = "rudyard-kipling"
+
+[[source]]
+page = "G. K. Chesterton"
+author = "G. K. Chesterton"
+category = "literature"
+art = "g-k-chesterton"
+
+[[source]]
+page = "Matsuo Bashō"
+author = "Matsuo Bashō"
+category = "literature"
+art = "matsuo-basho"
+
+[[source]]
+page = "Kobayashi Issa"
+author = "Kobayashi Issa"
+category = "literature"
+art = "kobayashi-issa"
+
+[[source]]
+page = "Murasaki Shikibu"
+author = "Murasaki Shikibu"
+category = "literature"
+art = "murasaki-shikibu"
+
+[[source]]
+page = "Li Bai"
+author = "Li Bai"
+category = "literature"
+art = "li-bai"
+
+[[source]]
+page = "Du Fu"
+author = "Du Fu"
+category = "literature"
+art = "du-fu"
+
+[[source]]
+page = "Kālidāsa"
+author = "Kālidāsa"
+category = "literature"
+art = "kalidasa"
+
+[[source]]
+page = "Ferdowsi"
+author = "Ferdowsi"
+category = "literature"
+art = "ferdowsi"
+
+[[source]]
+page = "Luís de Camões"
+author = "Luís de Camões"
+category = "literature"
+art = "luis-de-camoes"
+
+[[source]]
+page = "Molière"
+author = "Molière"
+category = "literature"
+art = "moliere"
+
+[[source]]
+page = "Jean Racine"
+author = "Jean Racine"
+category = "literature"
+art = "jean-racine"
+
+[[source]]
+page = "Pierre Corneille"
+author = "Pierre Corneille"
+category = "literature"
+art = "pierre-corneille"
+
+[[source]]
+page = "Jean de La Fontaine"
+author = "Jean de La Fontaine"
+category = "literature"
+art = "jean-de-la-fontaine"
+
+[[source]]
+page = "Marcel Proust"
+author = "Marcel Proust"
+category = "literature"
+art = "marcel-proust"
+
+[[source]]
+page = "Émile Zola"
+author = "Émile Zola"
+category = "literature"
+art = "emile-zola"
+
+[[source]]
+page = "Guy de Maupassant"
+author = "Guy de Maupassant"
+category = "literature"
+art = "guy-de-maupassant"
+
+[[source]]
+page = "Anatole France"
+author = "Anatole France"
+category = "literature"
+art = "anatole-france"
+
+[[source]]
+page = "Khalil Gibran"
+author = "Khalil Gibran"
+category = "literature"
+art = "khalil-gibran"
+
+[[source]]
+page = "The Matrix (film)"
+work = "The Matrix"
+category = "movie"
+art = "pill"
+
+[[source]]
+page = "The Lord of the Rings: The Fellowship of the Ring"
+work = "The Lord of the Rings: The Fellowship of the Ring"
+category = "movie"
+art = "ring"
+
+[[source]]
+page = "The Lord of the Rings: The Two Towers"
+work = "The Lord of the Rings: The Two Towers"
+category = "movie"
+art = "ring"
+
+[[source]]
+page = "The Lord of the Rings: The Return of the King"
+work = "The Lord of the Rings: The Return of the King"
+category = "movie"
+art = "ring"
+
+[[source]]
+page = "Fight Club (film)"
+work = "Fight Club"
+category = "movie"
+art = "fist"
+
+[[source]]
+page = "Gladiator (2000 film)"
+work = "Gladiator"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "The Dark Knight (film)"
+work = "The Dark Knight"
+category = "movie"
+art = "bat"
+
+[[source]]
+page = "Batman Begins"
+work = "Batman Begins"
+category = "movie"
+art = "bat"
+
+[[source]]
+page = "Blade Runner"
+work = "Blade Runner"
+category = "movie"
+art = "eye"
+
+[[source]]
+page = "Star Wars (film)"
+work = "Star Wars"
+category = "movie"
+art = "saber"
+
+[[source]]
+page = "The Empire Strikes Back"
+work = "The Empire Strikes Back"
+category = "movie"
+art = "saber"
+
+[[source]]
+page = "Return of the Jedi"
+work = "Return of the Jedi"
+category = "movie"
+art = "saber"
+
+[[source]]
+page = "The Shawshank Redemption"
+work = "The Shawshank Redemption"
+category = "movie"
+art = "key"
+
+[[source]]
+page = "Interstellar (film)"
+work = "Interstellar"
+category = "movie"
+art = "planet"
+
+[[source]]
+page = "The Godfather"
+work = "The Godfather"
+category = "movie"
+art = "rose"
+
+[[source]]
+page = "The Godfather Part II"
+work = "The Godfather Part II"
+category = "movie"
+art = "rose"
+
+[[source]]
+page = "Dead Poets Society"
+work = "Dead Poets Society"
+category = "movie"
+art = "quill"
+
+[[source]]
+page = "Forrest Gump"
+work = "Forrest Gump"
+category = "movie"
+art = "feather"
+
+[[source]]
+page = "V for Vendetta (film)"
+work = "V for Vendetta"
+category = "movie"
+art = "mask"
+
+[[source]]
+page = "Good Will Hunting"
+work = "Good Will Hunting"
+category = "movie"
+art = "book"
+
+[[source]]
+page = "Rocky Balboa (film)"
+work = "Rocky Balboa"
+category = "movie"
+art = "glove"
+
+[[source]]
+page = "Rocky"
+work = "Rocky"
+category = "movie"
+art = "glove"
+
+[[source]]
+page = "Kung Fu Panda"
+work = "Kung Fu Panda"
+category = "movie"
+art = "scroll"
+
+[[source]]
+page = "The Lion King"
+work = "The Lion King"
+category = "movie"
+art = "crown"
+
+[[source]]
+page = "Inception"
+work = "Inception"
+category = "movie"
+art = "hourglass"
+
+[[source]]
+page = "The Prestige (film)"
+work = "The Prestige"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Apocalypse Now"
+work = "Apocalypse Now"
+category = "movie"
+art = "skull"
+
+[[source]]
+page = "Braveheart"
+work = "Braveheart"
+category = "movie"
+art = "sword"
+
+[[source]]
+page = "The Last Samurai"
+work = "The Last Samurai"
+category = "movie"
+art = "katana"
+
+[[source]]
+page = "Troy (film)"
+work = "Troy"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "Kingdom of Heaven (film)"
+work = "Kingdom of Heaven"
+category = "movie"
+art = "sword"
+
+[[source]]
+page = "Oppenheimer (film)"
+work = "Oppenheimer"
+category = "movie"
+art = "atom"
+
+[[source]]
+page = "2001: A Space Odyssey (film)"
+work = "2001: A Space Odyssey"
+category = "movie"
+art = "planet"
+
+[[source]]
+page = "Casablanca (film)"
+work = "Casablanca"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Seven Samurai"
+work = "Seven Samurai"
+category = "movie"
+art = "katana"
+
+[[source]]
+page = "Princess Mononoke"
+work = "Princess Mononoke"
+category = "movie"
+art = "wolf"
+
+[[source]]
+page = "Spirited Away"
+work = "Spirited Away"
+category = "movie"
+art = "dragon"
+
+[[source]]
+page = "The Truman Show"
+work = "The Truman Show"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Cast Away"
+work = "Cast Away"
+category = "movie"
+art = "anchor"
+
+[[source]]
+page = "Scarface (1983 film)"
+work = "Scarface"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "No Country for Old Men (film)"
+work = "No Country for Old Men"
+category = "movie"
+art = "skull"
+
+[[source]]
+page = "There Will Be Blood"
+work = "There Will Be Blood"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Whiplash (film)"
+work = "Whiplash"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Ratatouille (film)"
+work = "Ratatouille"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Joker (2019 film)"
+work = "Joker"
+category = "movie"
+art = "mask"
+
+[[source]]
+page = "Mad Max: Fury Road"
+work = "Mad Max: Fury Road"
+category = "movie"
+art = "skull"
+
+[[source]]
+page = "American Beauty (1999 film)"
+work = "American Beauty"
+category = "movie"
+art = "rose"
+
+[[source]]
+page = "Schindler's List"
+work = "Schindler's List"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Dr. Strangelove"
+work = "Dr. Strangelove"
+category = "movie"
+art = "atom"
+
+[[source]]
+page = "Full Metal Jacket"
+work = "Full Metal Jacket"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "The Big Lebowski"
+work = "The Big Lebowski"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Pulp Fiction"
+work = "Pulp Fiction"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Taxi Driver"
+work = "Taxi Driver"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "A Clockwork Orange (film)"
+work = "A Clockwork Orange"
+category = "movie"
+art = "eye"
+
+[[source]]
+page = "The Shining (film)"
+work = "The Shining"
+category = "movie"
+art = "axe"
+
+[[source]]
+page = "Alien (film)"
+work = "Alien"
+category = "movie"
+art = "spaceship"
+
+[[source]]
+page = "Terminator 2: Judgment Day"
+work = "Terminator 2: Judgment Day"
+category = "movie"
+art = "robot"
+
+[[source]]
+page = "Back to the Future"
+work = "Back to the Future"
+category = "movie"
+art = "hourglass"
+
+[[source]]
+page = "Jurassic Park (film)"
+work = "Jurassic Park"
+category = "movie"
+art = "dragon"
+
+[[source]]
+page = "The Green Mile (film)"
+work = "The Green Mile"
+category = "movie"
+art = "key"
+
+[[source]]
+page = "300 (film)"
+work = "300"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "Dune (2021 film)"
+work = "Dune"
+category = "movie"
+art = "planet"
+
+[[source]]
+page = "The Pursuit of Happyness"
+work = "The Pursuit of Happyness"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Spider-Man (2002 film)"
+work = "Spider-Man"
+category = "movie"
+art = "mask"
+
+[[source]]
+page = "Avengers: Infinity War"
+work = "Avengers: Infinity War"
+category = "movie"
+art = "crystal"
+
+[[source]]
+page = "Pirates of the Caribbean: The Curse of the Black Pearl"
+work = "Pirates of the Caribbean: The Curse of the Black Pearl"
+category = "movie"
+art = "anchor"
+
+[[source]]
+page = "The Grand Budapest Hotel"
+work = "The Grand Budapest Hotel"
+category = "movie"
+art = "key"
+
+[[source]]
+page = "Se7en"
+work = "Se7en"
+category = "movie"
+art = "skull"
+
+[[source]]
+page = "Lawrence of Arabia (film)"
+work = "Lawrence of Arabia"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Citizen Kane"
+work = "Citizen Kane"
+category = "movie"
+art = "rose"
+
+[[source]]
+page = "It's a Wonderful Life"
+work = "It's a Wonderful Life"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "The Wizard of Oz (1939 film)"
+work = "The Wizard of Oz"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Gone with the Wind (film)"
+work = "Gone with the Wind"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "12 Angry Men (1957 film)"
+work = "12 Angry Men"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "To Kill a Mockingbird (film)"
+work = "To Kill a Mockingbird"
+category = "movie"
+art = "feather"
+
+[[source]]
+page = "One Flew Over the Cuckoo's Nest (film)"
+work = "One Flew Over the Cuckoo's Nest"
+category = "movie"
+art = "feather"
+
+[[source]]
+page = "Network (film)"
+work = "Network"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Raging Bull"
+work = "Raging Bull"
+category = "movie"
+art = "glove"
+
+[[source]]
+page = "Unforgiven"
+work = "Unforgiven"
+category = "movie"
+art = "cowboy"
+
+[[source]]
+page = "The Good, the Bad and the Ugly"
+work = "The Good, the Bad and the Ugly"
+category = "movie"
+art = "cowboy"
+
+[[source]]
+page = "Once Upon a Time in the West"
+work = "Once Upon a Time in the West"
+category = "movie"
+art = "cowboy"
+
+[[source]]
+page = "Rashomon"
+work = "Rashomon"
+category = "movie"
+art = "katana"
+
+[[source]]
+page = "Ikiru"
+work = "Ikiru"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "The Seventh Seal"
+work = "The Seventh Seal"
+category = "movie"
+art = "skull"
+
+[[source]]
+page = "Stalker (1979 film)"
+work = "Stalker"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Solaris (1972 film)"
+work = "Solaris"
+category = "movie"
+art = "planet"
+
+[[source]]
+page = "Wings of Desire"
+work = "Wings of Desire"
+category = "movie"
+art = "feather"
+
+[[source]]
+page = "Amadeus (film)"
+work = "Amadeus"
+category = "movie"
+art = "quill"
+
+[[source]]
+page = "Gandhi (film)"
+work = "Gandhi"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "The Elephant Man (film)"
+work = "The Elephant Man"
+category = "movie"
+art = "mask"
+
+[[source]]
+page = "Excalibur (film)"
+work = "Excalibur"
+category = "movie"
+art = "sword"
+
+[[source]]
+page = "Conan the Barbarian (1982 film)"
+work = "Conan the Barbarian"
+category = "movie"
+art = "sword"
+
+[[source]]
+page = "The Princess Bride (film)"
+work = "The Princess Bride"
+category = "movie"
+art = "sword"
+
+[[source]]
+page = "Highlander (film)"
+work = "Highlander"
+category = "movie"
+art = "sword"
+
+[[source]]
+page = "The Thin Red Line (1998 film)"
+work = "The Thin Red Line"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "Saving Private Ryan"
+work = "Saving Private Ryan"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "Patton (film)"
+work = "Patton"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "Platoon (film)"
+work = "Platoon"
+category = "movie"
+art = "helmet"
+
+[[source]]
+page = "Heat (1995 film)"
+work = "Heat"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "The Usual Suspects"
+work = "The Usual Suspects"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Memento (film)"
+work = "Memento"
+category = "movie"
+art = "hourglass"
+
+[[source]]
+page = "The Fountain"
+work = "The Fountain"
+category = "movie"
+art = "tree"
+
+[[source]]
+page = "Contact (film)"
+work = "Contact"
+category = "movie"
+art = "planet"
+
+[[source]]
+page = "Gattaca"
+work = "Gattaca"
+category = "movie"
+art = "atom"
+
+[[source]]
+page = "Ghost in the Shell (1995 film)"
+work = "Ghost in the Shell"
+category = "movie"
+art = "robot"
+
+[[source]]
+page = "Akira (film)"
+work = "Akira"
+category = "movie"
+art = "atom"
+
+[[source]]
+page = "Waking Life"
+work = "Waking Life"
+category = "movie"
+art = "eye"
+
+[[source]]
+page = "Donnie Darko"
+work = "Donnie Darko"
+category = "movie"
+art = "hourglass"
+
+[[source]]
+page = "Eternal Sunshine of the Spotless Mind"
+work = "Eternal Sunshine of the Spotless Mind"
+category = "movie"
+art = "heart"
+
+[[source]]
+page = "Her (film)"
+work = "Her"
+category = "movie"
+art = "heart"
+
+[[source]]
+page = "Ex Machina (film)"
+work = "Ex Machina"
+category = "movie"
+art = "robot"
+
+[[source]]
+page = "Arrival (film)"
+work = "Arrival"
+category = "movie"
+art = "planet"
+
+[[source]]
+page = "Blade Runner 2049"
+work = "Blade Runner 2049"
+category = "movie"
+art = "eye"
+
+[[source]]
+page = "The Revenant (2015 film)"
+work = "The Revenant"
+category = "movie"
+art = "wolf"
+
+[[source]]
+page = "Into the Wild (film)"
+work = "Into the Wild"
+category = "movie"
+art = "tree"
+
+[[source]]
+page = "Life of Pi (film)"
+work = "Life of Pi"
+category = "movie"
+art = "anchor"
+
+[[source]]
+page = "The Secret Life of Walter Mitty (2013 film)"
+work = "The Secret Life of Walter Mitty"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Groundhog Day (film)"
+work = "Groundhog Day"
+category = "movie"
+art = "hourglass"
+
+[[source]]
+page = "Dead Man (film)"
+work = "Dead Man"
+category = "movie"
+art = "cowboy"
+
+[[source]]
+page = "The Matrix Reloaded"
+work = "The Matrix Reloaded"
+category = "movie"
+art = "pill"
+
+[[source]]
+page = "The Matrix Revolutions"
+work = "The Matrix Revolutions"
+category = "movie"
+art = "pill"
+
+[[source]]
+page = "Batman (1989 film)"
+work = "Batman"
+category = "movie"
+art = "bat"
+
+[[source]]
+page = "The Dark Knight Rises"
+work = "The Dark Knight Rises"
+category = "movie"
+art = "bat"
+
+[[source]]
+page = "Watchmen (film)"
+work = "Watchmen"
+category = "movie"
+art = "mask"
+
+[[source]]
+page = "The Incredibles"
+work = "The Incredibles"
+category = "movie"
+art = "mask"
+
+[[source]]
+page = "WALL-E"
+work = "WALL-E"
+category = "movie"
+art = "robot"
+
+[[source]]
+page = "Up (2009 film)"
+work = "Up"
+category = "movie"
+art = "feather"
+
+[[source]]
+page = "Toy Story"
+work = "Toy Story"
+category = "movie"
+art = "film"
+
+[[source]]
+page = "Finding Nemo"
+work = "Finding Nemo"
+category = "movie"
+art = "anchor"
+
+[[source]]
+page = "Mulan (1998 film)"
+work = "Mulan"
+category = "movie"
+art = "sword"
+
+[[source]]
+page = "Howl's Moving Castle (film)"
+work = "Howl's Moving Castle"
+category = "movie"
+art = "heart"
+
+[[source]]
+page = "How to Train Your Dragon (film)"
+work = "How to Train Your Dragon"
+category = "movie"
+art = "dragon"
+
+[[source]]
+page = "Kung Fu Panda 2"
+work = "Kung Fu Panda 2"
+category = "movie"
+art = "scroll"
+
+[[source]]
+page = "The Iron Giant"
+work = "The Iron Giant"
+category = "movie"
+art = "robot"
+
+[[source]]
+page = "Avatar: The Last Airbender"
+work = "Avatar: The Last Airbender"
+category = "tv"
+art = "scroll"
+
+[[source]]
+page = "Breaking Bad"
+work = "Breaking Bad"
+category = "tv"
+art = "atom"
+
+[[source]]
+page = "Game of Thrones"
+work = "Game of Thrones"
+category = "tv"
+art = "crown"
+
+[[source]]
+page = "True Detective"
+work = "True Detective"
+category = "tv"
+art = "skull"
+
+[[source]]
+page = "BoJack Horseman"
+work = "BoJack Horseman"
+category = "tv"
+art = "screen"
+
+[[source]]
+page = "Rick and Morty"
+work = "Rick and Morty"
+category = "tv"
+art = "planet"
+
+[[source]]
+page = "The Wire"
+work = "The Wire"
+category = "tv"
+art = "screen"
+
+[[source]]
+page = "Mad Men"
+work = "Mad Men"
+category = "tv"
+art = "screen"
+
+[[source]]
+page = "Doctor Who"
+work = "Doctor Who"
+category = "tv"
+art = "hourglass"
+
+[[source]]
+page = "Star Trek: The Next Generation"
+work = "Star Trek: The Next Generation"
+category = "tv"
+art = "spaceship"
+
+[[source]]
+page = "Star Trek: The Original Series"
+work = "Star Trek: The Original Series"
+category = "tv"
+art = "spaceship"
+
+[[source]]
+page = "Firefly (TV series)"
+work = "Firefly"
+category = "tv"
+art = "spaceship"
+
+[[source]]
+page = "Battlestar Galactica (2004 TV series)"
+work = "Battlestar Galactica"
+category = "tv"
+art = "spaceship"
+
+[[source]]
+page = "Babylon 5"
+work = "Babylon 5"
+category = "tv"
+art = "spaceship"
+
+[[source]]
+page = "Cowboy Bebop"
+work = "Cowboy Bebop"
+category = "tv"
+art = "spaceship"
+
+[[source]]
+page = "Fullmetal Alchemist: Brotherhood"
+work = "Fullmetal Alchemist: Brotherhood"
+category = "tv"
+art = "crystal"
+
+[[source]]
+page = "Naruto"
+work = "Naruto"
+category = "tv"
+art = "scroll"
+
+[[source]]
+page = "Attack on Titan"
+work = "Attack on Titan"
+category = "tv"
+art = "sword"
+
+[[source]]
+page = "Death Note"
+work = "Death Note"
+category = "tv"
+art = "quill"
+
+[[source]]
+page = "Neon Genesis Evangelion"
+work = "Neon Genesis Evangelion"
+category = "tv"
+art = "robot"
+
+[[source]]
+page = "Westworld (TV series)"
+work = "Westworld"
+category = "tv"
+art = "cowboy"
+
+[[source]]
+page = "Sherlock (TV series)"
+work = "Sherlock"
+category = "tv"
+art = "eye"
+
+[[source]]
+page = "House (TV series)"
+work = "House"
+category = "tv"
+art = "screen"
+
+[[source]]
+page = "The Sopranos"
+work = "The Sopranos"
+category = "tv"
+art = "screen"
+
+[[source]]
+page = "Deadwood (TV series)"
+work = "Deadwood"
+category = "tv"
+art = "cowboy"
+
+[[source]]
+page = "Vikings (TV series)"
+work = "Vikings"
+category = "tv"
+art = "axe"
+
+[[source]]
+page = "Peaky Blinders (TV series)"
+work = "Peaky Blinders"
+category = "tv"
+art = "screen"
+
+[[source]]
+page = "The Twilight Zone (1959 TV series)"
+work = "The Twilight Zone"
+category = "tv"
+art = "eye"
+
+[[source]]
+page = "Cosmos: A Personal Voyage"
+work = "Cosmos: A Personal Voyage"
+category = "tv"
+art = "planet"
+
+[[source]]
+page = "Twin Peaks"
+work = "Twin Peaks"
+category = "tv"
+art = "screen"
+
+[[source]]
+page = "Mr. Robot"
+work = "Mr. Robot"
+category = "tv"
+art = "mask"
+
+[[source]]
+page = "Black Mirror"
+work = "Black Mirror"
+category = "tv"
+art = "eye"
+
+[[source]]
+page = "The Expanse (TV series)"
+work = "The Expanse"
+category = "tv"
+art = "spaceship"
+
+[[source]]
+page = "Rome (TV series)"
+work = "Rome"
+category = "tv"
+art = "helmet"
+
+[[source]]
+page = "Samurai Jack"
+work = "Samurai Jack"
+category = "tv"
+art = "katana"
+
+[[source]]
+page = "Berserk (1997 TV series)"
+work = "Berserk"
+category = "tv"
+art = "sword"
+
+[[source]]
+page = "Vinland Saga"
+work = "Vinland Saga"
+category = "tv"
+art = "axe"
+
+[[source]]
+page = "One Piece"
+work = "One Piece"
+category = "tv"
+art = "anchor"
+
+[[source]]
+page = "Hunter × Hunter"
+work = "Hunter × Hunter"
+category = "tv"
+art = "crystal"
+
+[[source]]
+page = "Steins;Gate"
+work = "Steins;Gate"
+category = "tv"
+art = "hourglass"
+
+[[source]]
+page = "Dark Souls"
+work = "Dark Souls"
+category = "game"
+art = "bonfire"
+
+[[source]]
+page = "Dark Souls II"
+work = "Dark Souls II"
+category = "game"
+art = "bonfire"
+
+[[source]]
+page = "Dark Souls III"
+work = "Dark Souls III"
+category = "game"
+art = "bonfire"
+
+[[source]]
+page = "Bloodborne"
+work = "Bloodborne"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Elden Ring"
+work = "Elden Ring"
+category = "game"
+art = "ring"
+
+[[source]]
+page = "Sekiro: Shadows Die Twice"
+work = "Sekiro: Shadows Die Twice"
+category = "game"
+art = "katana"
+
+[[source]]
+page = "The Witcher 3: Wild Hunt"
+work = "The Witcher 3: Wild Hunt"
+category = "game"
+art = "wolf"
+
+[[source]]
+page = "The Witcher (video game)"
+work = "The Witcher"
+category = "game"
+art = "wolf"
+
+[[source]]
+page = "Metal Gear Solid"
+work = "Metal Gear Solid"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Metal Gear Solid 2: Sons of Liberty"
+work = "Metal Gear Solid 2: Sons of Liberty"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Metal Gear Solid 3: Snake Eater"
+work = "Metal Gear Solid 3: Snake Eater"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Metal Gear Solid 4: Guns of the Patriots"
+work = "Metal Gear Solid 4: Guns of the Patriots"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Metal Gear Solid V: The Phantom Pain"
+work = "Metal Gear Solid V: The Phantom Pain"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Red Dead Redemption"
+work = "Red Dead Redemption"
+category = "game"
+art = "cowboy"
+
+[[source]]
+page = "Red Dead Redemption 2"
+work = "Red Dead Redemption 2"
+category = "game"
+art = "cowboy"
+
+[[source]]
+page = "God of War (2018 video game)"
+work = "God of War"
+category = "game"
+art = "axe"
+
+[[source]]
+page = "God of War (2005 video game)"
+work = "God of War"
+category = "game"
+art = "axe"
+
+[[source]]
+page = "BioShock"
+work = "BioShock"
+category = "game"
+art = "lighthouse"
+
+[[source]]
+page = "BioShock Infinite"
+work = "BioShock Infinite"
+category = "game"
+art = "lighthouse"
+
+[[source]]
+page = "Mass Effect"
+work = "Mass Effect"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "Mass Effect 2"
+work = "Mass Effect 2"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "Mass Effect 3"
+work = "Mass Effect 3"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "Halo: Combat Evolved"
+work = "Halo: Combat Evolved"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Halo 2"
+work = "Halo 2"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Halo 3"
+work = "Halo 3"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Halo: Reach"
+work = "Halo: Reach"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Portal (video game)"
+work = "Portal"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "Portal 2"
+work = "Portal 2"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "The Elder Scrolls V: Skyrim"
+work = "The Elder Scrolls V: Skyrim"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "The Elder Scrolls III: Morrowind"
+work = "The Elder Scrolls III: Morrowind"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "The Elder Scrolls IV: Oblivion"
+work = "The Elder Scrolls IV: Oblivion"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Final Fantasy VII"
+work = "Final Fantasy VII"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Final Fantasy X"
+work = "Final Fantasy X"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Final Fantasy VI"
+work = "Final Fantasy VI"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Final Fantasy IX"
+work = "Final Fantasy IX"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Final Fantasy Tactics"
+work = "Final Fantasy Tactics"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "NieR: Automata"
+work = "NieR: Automata"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "Disco Elysium"
+work = "Disco Elysium"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Hollow Knight"
+work = "Hollow Knight"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "Undertale"
+work = "Undertale"
+category = "game"
+art = "heart"
+
+[[source]]
+page = "Half-Life 2"
+work = "Half-Life 2"
+category = "game"
+art = "atom"
+
+[[source]]
+page = "Half-Life (video game)"
+work = "Half-Life"
+category = "game"
+art = "atom"
+
+[[source]]
+page = "Fallout: New Vegas"
+work = "Fallout: New Vegas"
+category = "game"
+art = "atom"
+
+[[source]]
+page = "Fallout 3"
+work = "Fallout 3"
+category = "game"
+art = "atom"
+
+[[source]]
+page = "Fallout (video game)"
+work = "Fallout"
+category = "game"
+art = "atom"
+
+[[source]]
+page = "Fallout 2"
+work = "Fallout 2"
+category = "game"
+art = "atom"
+
+[[source]]
+page = "Assassin's Creed (video game)"
+work = "Assassin's Creed"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "Assassin's Creed II"
+work = "Assassin's Creed II"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "The Last of Us"
+work = "The Last of Us"
+category = "game"
+art = "tree"
+
+[[source]]
+page = "Kingdom Hearts (video game)"
+work = "Kingdom Hearts"
+category = "game"
+art = "key"
+
+[[source]]
+page = "Kingdom Hearts II"
+work = "Kingdom Hearts II"
+category = "game"
+art = "key"
+
+[[source]]
+page = "The Legend of Zelda: Ocarina of Time"
+work = "The Legend of Zelda: Ocarina of Time"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "The Legend of Zelda: Majora's Mask"
+work = "The Legend of Zelda: Majora's Mask"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "The Legend of Zelda: Breath of the Wild"
+work = "The Legend of Zelda: Breath of the Wild"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Deus Ex (video game)"
+work = "Deus Ex"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Deus Ex: Human Revolution"
+work = "Deus Ex: Human Revolution"
+category = "game"
+art = "eye"
+
+[[source]]
+page = "Planescape: Torment"
+work = "Planescape: Torment"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Star Wars: Knights of the Old Republic"
+work = "Star Wars: Knights of the Old Republic"
+category = "game"
+art = "saber"
+
+[[source]]
+page = "Star Wars: Knights of the Old Republic II: The Sith Lords"
+work = "Star Wars: Knights of the Old Republic II: The Sith Lords"
+category = "game"
+art = "saber"
+
+[[source]]
+page = "Dragon Age: Origins"
+work = "Dragon Age: Origins"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Spec Ops: The Line"
+work = "Spec Ops: The Line"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Max Payne (video game)"
+work = "Max Payne"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Max Payne 2: The Fall of Max Payne"
+work = "Max Payne 2: The Fall of Max Payne"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Silent Hill 2"
+work = "Silent Hill 2"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Persona 5"
+work = "Persona 5"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "Cyberpunk 2077"
+work = "Cyberpunk 2077"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "Ghost of Tsushima"
+work = "Ghost of Tsushima"
+category = "game"
+art = "katana"
+
+[[source]]
+page = "Horizon Zero Dawn"
+work = "Horizon Zero Dawn"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "Death Stranding"
+work = "Death Stranding"
+category = "game"
+art = "planet"
+
+[[source]]
+page = "Hades (video game)"
+work = "Hades"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "World of Warcraft"
+work = "World of Warcraft"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Warcraft III: Reign of Chaos"
+work = "Warcraft III: Reign of Chaos"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "StarCraft"
+work = "StarCraft"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "Diablo II"
+work = "Diablo II"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Civilization IV"
+work = "Civilization IV"
+category = "game"
+art = "crown"
+
+[[source]]
+page = "Call of Duty 4: Modern Warfare"
+work = "Call of Duty 4: Modern Warfare"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Far Cry 3"
+work = "Far Cry 3"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Borderlands 2"
+work = "Borderlands 2"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Team Fortress 2"
+work = "Team Fortress 2"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Overwatch"
+work = "Overwatch"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "League of Legends"
+work = "League of Legends"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Dota 2"
+work = "Dota 2"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Shadow of the Colossus"
+work = "Shadow of the Colossus"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Ōkami"
+work = "Ōkami"
+category = "game"
+art = "wolf"
+
+[[source]]
+page = "Chrono Trigger"
+work = "Chrono Trigger"
+category = "game"
+art = "hourglass"
+
+[[source]]
+page = "Xenogears"
+work = "Xenogears"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "Legacy of Kain: Soul Reaver"
+work = "Legacy of Kain: Soul Reaver"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Batman: Arkham City"
+work = "Batman: Arkham City"
+category = "game"
+art = "bat"
+
+[[source]]
+page = "Batman: Arkham Asylum"
+work = "Batman: Arkham Asylum"
+category = "game"
+art = "bat"
+
+[[source]]
+page = "Alan Wake"
+work = "Alan Wake"
+category = "game"
+art = "quill"
+
+[[source]]
+page = "Life Is Strange"
+work = "Life Is Strange"
+category = "game"
+art = "hourglass"
+
+[[source]]
+page = "Detroit: Become Human"
+work = "Detroit: Become Human"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "Dishonored"
+work = "Dishonored"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "System Shock 2"
+work = "System Shock 2"
+category = "game"
+art = "robot"
+
+[[source]]
+page = "Grim Fandango"
+work = "Grim Fandango"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "The Secret of Monkey Island"
+work = "The Secret of Monkey Island"
+category = "game"
+art = "anchor"
+
+[[source]]
+page = "Baldur's Gate II: Shadows of Amn"
+work = "Baldur's Gate II: Shadows of Amn"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Baldur's Gate 3"
+work = "Baldur's Gate 3"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Bastion (video game)"
+work = "Bastion"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Transistor (video game)"
+work = "Transistor"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Journey (2012 video game)"
+work = "Journey"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Celeste (video game)"
+work = "Celeste"
+category = "game"
+art = "heart"
+
+[[source]]
+page = "Destiny (video game)"
+work = "Destiny"
+category = "game"
+art = "planet"
+
+[[source]]
+page = "Destiny 2"
+work = "Destiny 2"
+category = "game"
+art = "planet"
+
+[[source]]
+page = "Mortal Kombat"
+work = "Mortal Kombat"
+category = "game"
+art = "fist"
+
+[[source]]
+page = "Street Fighter II"
+work = "Street Fighter II"
+category = "game"
+art = "fist"
+
+[[source]]
+page = "Tekken"
+work = "Tekken"
+category = "game"
+art = "fist"
+
+[[source]]
+page = "Devil May Cry"
+work = "Devil May Cry"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Devil May Cry 3: Dante's Awakening"
+work = "Devil May Cry 3: Dante's Awakening"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Resident Evil 4"
+work = "Resident Evil 4"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Metroid Prime"
+work = "Metroid Prime"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Star Fox 64"
+work = "Star Fox 64"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "EarthBound"
+work = "EarthBound"
+category = "game"
+art = "heart"
+
+[[source]]
+page = "Mother 3"
+work = "Mother 3"
+category = "game"
+art = "heart"
+
+[[source]]
+page = "Fire Emblem: Three Houses"
+work = "Fire Emblem: Three Houses"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Xenoblade Chronicles"
+work = "Xenoblade Chronicles"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Tales of Symphonia"
+work = "Tales of Symphonia"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Suikoden II"
+work = "Suikoden II"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Vagrant Story"
+work = "Vagrant Story"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Valkyrie Profile"
+work = "Valkyrie Profile"
+category = "game"
+art = "feather"
+
+[[source]]
+page = "Shin Megami Tensei: Nocturne"
+work = "Shin Megami Tensei: Nocturne"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Persona 3"
+work = "Persona 3"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "Persona 4"
+work = "Persona 4"
+category = "game"
+art = "mask"
+
+[[source]]
+page = "Yakuza 0"
+work = "Yakuza 0"
+category = "game"
+art = "fist"
+
+[[source]]
+page = "Sid Meier's Alpha Centauri"
+work = "Sid Meier's Alpha Centauri"
+category = "game"
+art = "planet"
+
+[[source]]
+page = "Civilization V"
+work = "Civilization V"
+category = "game"
+art = "crown"
+
+[[source]]
+page = "Age of Empires II"
+work = "Age of Empires II"
+category = "game"
+art = "crown"
+
+[[source]]
+page = "Total War: Rome II"
+work = "Total War: Rome II"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Homeworld"
+work = "Homeworld"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "Freespace 2"
+work = "Freespace 2"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "Thief: The Dark Project"
+work = "Thief: The Dark Project"
+category = "game"
+art = "key"
+
+[[source]]
+page = "Myst"
+work = "Myst"
+category = "game"
+art = "book"
+
+[[source]]
+page = "Riven"
+work = "Riven"
+category = "game"
+art = "book"
+
+[[source]]
+page = "The Stanley Parable"
+work = "The Stanley Parable"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Braid (video game)"
+work = "Braid"
+category = "game"
+art = "hourglass"
+
+[[source]]
+page = "Limbo (video game)"
+work = "Limbo"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Inside (video game)"
+work = "Inside"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Firewatch"
+work = "Firewatch"
+category = "game"
+art = "tree"
+
+[[source]]
+page = "Kentucky Route Zero"
+work = "Kentucky Route Zero"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Night in the Woods"
+work = "Night in the Woods"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Outer Wilds"
+work = "Outer Wilds"
+category = "game"
+art = "planet"
+
+[[source]]
+page = "Subnautica"
+work = "Subnautica"
+category = "game"
+art = "anchor"
+
+[[source]]
+page = "No Man's Sky"
+work = "No Man's Sky"
+category = "game"
+art = "planet"
+
+[[source]]
+page = "Mirror's Edge"
+work = "Mirror's Edge"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Uncharted 2: Among Thieves"
+work = "Uncharted 2: Among Thieves"
+category = "game"
+art = "key"
+
+[[source]]
+page = "Uncharted 4: A Thief's End"
+work = "Uncharted 4: A Thief's End"
+category = "game"
+art = "anchor"
+
+[[source]]
+page = "The Walking Dead (video game)"
+work = "The Walking Dead"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "The Wolf Among Us"
+work = "The Wolf Among Us"
+category = "game"
+art = "wolf"
+
+[[source]]
+page = "Tomb Raider (2013 video game)"
+work = "Tomb Raider"
+category = "game"
+art = "key"
+
+[[source]]
+page = "Prince of Persia: The Sands of Time"
+work = "Prince of Persia: The Sands of Time"
+category = "game"
+art = "hourglass"
+
+[[source]]
+page = "Shadow of Mordor"
+work = "Middle-earth: Shadow of Mordor"
+category = "game"
+art = "ring"
+
+[[source]]
+page = "Darkest Dungeon"
+work = "Darkest Dungeon"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Diablo III"
+work = "Diablo III"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Path of Exile"
+work = "Path of Exile"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Warhammer 40,000: Dawn of War"
+work = "Warhammer 40,000: Dawn of War"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Gears of War"
+work = "Gears of War"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Killzone 2"
+work = "Killzone 2"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Dead Space (2008 video game)"
+work = "Dead Space"
+category = "game"
+art = "spaceship"
+
+[[source]]
+page = "Doom (2016 video game)"
+work = "Doom"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Quake (video game)"
+work = "Quake"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Wolfenstein: The New Order"
+work = "Wolfenstein: The New Order"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Dragon's Dogma"
+work = "Dragon's Dogma"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Monster Hunter: World"
+work = "Monster Hunter: World"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Final Fantasy XIV"
+work = "Final Fantasy XIV"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Final Fantasy XV"
+work = "Final Fantasy XV"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Final Fantasy VIII"
+work = "Final Fantasy VIII"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Kingdom Come: Deliverance"
+work = "Kingdom Come: Deliverance"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Mount & Blade"
+work = "Mount & Blade"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Crusader Kings II"
+work = "Crusader Kings II"
+category = "game"
+art = "crown"
+
+[[source]]
+page = "The Witcher 2: Assassins of Kings"
+work = "The Witcher 2: Assassins of Kings"
+category = "game"
+art = "wolf"
+
+[[source]]
+page = "Gothic (video game)"
+work = "Gothic"
+category = "game"
+art = "sword"
+
+[[source]]
+page = "Arcanum: Of Steamworks and Magick Obscura"
+work = "Arcanum: Of Steamworks and Magick Obscura"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Vampire: The Masquerade – Bloodlines"
+work = "Vampire: The Masquerade – Bloodlines"
+category = "game"
+art = "skull"
+
+[[source]]
+page = "Star Wars: The Old Republic"
+work = "Star Wars: The Old Republic"
+category = "game"
+art = "saber"
+
+[[source]]
+page = "Jade Empire"
+work = "Jade Empire"
+category = "game"
+art = "fist"
+
+[[source]]
+page = "Neverwinter Nights 2"
+work = "Neverwinter Nights 2"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Pillars of Eternity"
+work = "Pillars of Eternity"
+category = "game"
+art = "crystal"
+
+[[source]]
+page = "Tyranny (video game)"
+work = "Tyranny"
+category = "game"
+art = "crown"
+
+[[source]]
+page = "Divinity: Original Sin II"
+work = "Divinity: Original Sin II"
+category = "game"
+art = "dragon"
+
+[[source]]
+page = "Sunless Sea"
+work = "Sunless Sea"
+category = "game"
+art = "anchor"
+
+[[source]]
+page = "80 Days (2014 video game)"
+work = "80 Days"
+category = "game"
+art = "hourglass"
+
+[[source]]
+page = "Papers, Please"
+work = "Papers, Please"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "This War of Mine"
+work = "This War of Mine"
+category = "game"
+art = "gamepad"
+
+[[source]]
+page = "Valiant Hearts: The Great War"
+work = "Valiant Hearts: The Great War"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Brothers in Arms: Road to Hill 30"
+work = "Brothers in Arms: Road to Hill 30"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Medal of Honor: Allied Assault"
+work = "Medal of Honor: Allied Assault"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Call of Duty: Modern Warfare 2"
+work = "Call of Duty: Modern Warfare 2"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Call of Duty: World at War"
+work = "Call of Duty: World at War"
+category = "game"
+art = "helmet"
+
+[[source]]
+page = "Battlefield 1"
+work = "Battlefield 1"
+category = "game"
+art = "helmet"
