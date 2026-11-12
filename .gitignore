@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+.venv/
+scripts/.cache/
+*.tmp
+doc/tags
