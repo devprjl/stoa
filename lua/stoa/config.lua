@@ -11,8 +11,8 @@ local function defaults()
       interval = 86400,
       timeout = 8,
       urls = {
-        'https://cdn.jsdelivr.net/gh/itzzsauravp/stoa.nvim@main/data',
-        'https://raw.githubusercontent.com/itzzsauravp/stoa.nvim/main/data',
+        'https://cdn.jsdelivr.net/gh/devprjl/stoa.nvim@main/data',
+        'https://raw.githubusercontent.com/devprjl/stoa.nvim/main/data',
       },
     },
     view = { border = 'rounded', title = ' stoa ', wrap = 64 },
