@@ -8,7 +8,7 @@ stoa.nvim replaces the empty start screen with one thought worth reading and a b
 
 - **Works offline.** The quotes and art ship with the plugin.
 - **Grows on its own.** A daily job adds quotes to this repo, and the plugin picks them up in the background.
-- **Never in your way.** No network call at startup, no error messages, about a millisecond of startup time.
+- **Never in your way.** No network call at startup and no error messages, online or offline.
 - **No repeats** until you have seen every quote.
 
 | | |
