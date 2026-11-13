@@ -3,7 +3,7 @@ local render = require 'stoa.render'
 
 local M = {}
 
-local state = { win = nil, buf = nil }
+local state = { win = nil, buf = nil, quote = nil }
 
 local function close()
   if state.win and vim.api.nvim_win_is_valid(state.win) then vim.api.nvim_win_close(state.win, true) end
@@ -40,6 +40,7 @@ local function layout(quote)
 end
 
 local function draw(quote)
+  state.quote = quote
   local built, win_config = layout(quote)
   render.apply(state.buf, built)
   if state.win and vim.api.nvim_win_is_valid(state.win) then
@@ -66,6 +67,12 @@ function M.open(quote)
   map('<Esc>', close)
   map('n', function() draw(require('stoa').next()) end)
   map('y', function() require('stoa').copy() end)
+  vim.api.nvim_create_autocmd('VimResized', {
+    buffer = state.buf,
+    callback = function()
+      if state.buf and state.quote then draw(state.quote) end
+    end,
+  })
   vim.api.nvim_create_autocmd('WinLeave', { buffer = state.buf, once = true, callback = close })
 end
 

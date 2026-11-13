@@ -93,11 +93,12 @@ function M.apply(buf, built)
 end
 
 function M.highlights()
-  local links =
-    { StoaArt = 'Function', StoaQuote = 'Normal', StoaAuthor = 'Comment', StoaHint = 'NonText', StoaBorder = 'FloatBorder', StoaTitle = 'FloatTitle' }
+  local links = { StoaArt = 'Function', StoaAuthor = 'Comment', StoaHint = 'NonText', StoaBorder = 'FloatBorder', StoaTitle = 'FloatTitle' }
   for group, target in pairs(links) do
     vim.api.nvim_set_hl(0, group, { link = target, default = true })
   end
+  local normal = vim.api.nvim_get_hl(0, { name = 'Normal', link = false })
+  vim.api.nvim_set_hl(0, 'StoaQuote', { fg = normal.fg, default = true })
 end
 
 return M
