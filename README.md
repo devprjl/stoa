@@ -26,7 +26,7 @@ Requires Neovim 0.10 or newer. `curl` is used for updates only.
 
 ```lua
 {
-  'devprjl/stoa.nvim',
+  'devprjl/stoa',
   lazy = false,
   opts = { dashboard = true },
 }
@@ -35,7 +35,7 @@ Requires Neovim 0.10 or newer. `curl` is used for updates only.
 **vim.pack** (Neovim 0.12)
 
 ```lua
-vim.pack.add { 'https://github.com/devprjl/stoa.nvim' }
+vim.pack.add { 'https://github.com/devprjl/stoa' }
 require('stoa').setup { dashboard = true }
 ```
 
@@ -122,13 +122,13 @@ The pack starts small on purpose: ten philosophers. It grows from there.
 Everything is plain JSON under [`data/`](data), served by GitHub and jsDelivr with no key and no sign-up:
 
 ```
-https://cdn.jsdelivr.net/gh/devprjl/stoa.nvim@main/data/index.json
-https://cdn.jsdelivr.net/gh/devprjl/stoa.nvim@main/data/quotes.json
-https://cdn.jsdelivr.net/gh/devprjl/stoa.nvim@main/data/art/<id>.json
+https://cdn.jsdelivr.net/gh/devprjl/stoa@main/data/index.json
+https://cdn.jsdelivr.net/gh/devprjl/stoa@main/data/quotes.json
+https://cdn.jsdelivr.net/gh/devprjl/stoa@main/data/art/<id>.json
 ```
 
 ```sh
-curl -s https://cdn.jsdelivr.net/gh/devprjl/stoa.nvim@main/data/quotes.json | jq '.[0]'
+curl -s https://cdn.jsdelivr.net/gh/devprjl/stoa@main/data/quotes.json | jq '.[0]'
 ```
 
 ```json
