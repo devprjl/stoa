@@ -25,7 +25,6 @@ local function prepare()
     local ok, quote = pcall(picker.pick, current and current.id)
     if ok and quote then store.write(store.state_path 'next.json', quote) end
     pcall(function() require('stoa.sync').maybe() end)
-    pcall(function() require('stoa.sync').top_up() end)
   end, 1500)
 end
 

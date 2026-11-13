@@ -1,0 +1,27 @@
+{
+ "version": 1,
+ "updated": "2026-11-13",
+ "schema": 1,
+ "quotes": 10,
+ "categories": {
+  "philosophy": 10,
+  "literature": 0,
+  "game": 0,
+  "movie": 0,
+  "tv": 0
+ },
+ "art": {
+  "aristotle": "c638092b",
+  "confucius": "69d2168b",
+  "default": "d74be22e",
+  "epictetus": "a231482d",
+  "friedrich-nietzsche": "698f3233",
+  "immanuel-kant": "3966f8f0",
+  "lao-tzu": "266b52e4",
+  "marcus-aurelius": "a827f892",
+  "philosophy": "40833d45",
+  "plato": "5dceb1e6",
+  "seneca": "e259e247",
+  "socrates": "0e0bba9c"
+ }
+}

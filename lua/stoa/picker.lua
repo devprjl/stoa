@@ -23,7 +23,7 @@ function M.allowed(quote)
 end
 
 function M.resolve(quote)
-  local art = store.art(quote.id) or require('stoa.generate').art(quote.id)
+  local art = store.art(quote.art) or store.art(quote.category) or store.art 'default' or require('stoa.generate').art(quote.id)
   return { id = quote.id, text = quote.text, author = quote.author, work = quote.work, category = quote.category, art = art }
 end
 
@@ -46,10 +46,6 @@ function M.pick(exclude)
   end
 
   local quote = pool[random(#pool)]
-  for _ = 1, 6 do
-    if store.has_art(quote.id) then break end
-    quote = pool[random(#pool)]
-  end
   history[#history + 1] = quote.id
   store.update_state { seen = history }
   return M.resolve(quote)

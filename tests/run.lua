@@ -16,26 +16,29 @@ local function write(path, value)
   file:close()
 end
 
+local function art(dir, id, mark)
+  write(
+    ('%s/art/%s.json'):format(dir, id),
+    { id = id, name = id, kind = 'portrait', credit = 'Test credit', mark = mark, large = { 'LARGE', 'LARGE', 'LARGE', 'LARGE' }, small = { 'SMALL' } }
+  )
+end
+
 local function pack(dir, version, count, mark)
   local quotes = {}
   for i = 1, count do
-    local id = ('q%d'):format(i)
-    quotes[i] = { id = id, text = ('quote %d of pack %d'):format(i, version), author = 'Tester', category = i % 2 == 0 and 'game' or 'philosophy' }
-    write(
-      ('%s/art/%s.json'):format(dir, id),
-      {
-        id = id,
-        title = 'Piece ' .. id,
-        museum = 'Test Museum',
-        source = 'test:' .. id,
-        mark = mark,
-        large = { 'LARGE', 'LARGE', 'LARGE', 'LARGE' },
-        small = { 'SMALL' },
-      }
-    )
+    local game = i % 2 == 0
+    quotes[i] = {
+      id = ('q%d'):format(i),
+      text = ('quote %d of pack %d'):format(i, version),
+      author = 'Tester',
+      category = game and 'game' or 'philosophy',
+      art = game and 'nobody' or 'bust',
+    }
   end
+  art(dir, 'bust', mark)
+  art(dir, 'game', mark)
   write(dir .. '/quotes.json', quotes)
-  write(dir .. '/index.json', { version = version, quotes = count, updated = '2026-01-01', art = count })
+  write(dir .. '/index.json', { version = version, quotes = count, updated = '2026-01-01', art = { bust = mark or 'a1', game = mark or 'a1' } })
 end
 
 local function reset(opts)
@@ -89,22 +92,27 @@ test('picker respects the category filter', function()
   end
 end)
 
-test('picked quotes carry their art', function()
-  reset()
-  local quote = require('stoa.picker').pick()
-  eq(quote.art.small, { 'SMALL' }, 'art')
-  eq(quote.art.source, 'test:' .. quote.id, 'art belongs to the quote')
+test('a known person gets their portrait and it is reused', function()
+  reset { count = 6, config = { categories = { 'philosophy' } } }
+  local picker = require 'stoa.picker'
+  local first, second = picker.pick(), picker.pick()
+  eq(first.art.id, 'bust', 'portrait')
+  eq(second.art.id, 'bust', 'same portrait for the same person')
 end)
 
-test('a quote without an art file gets its own generated art', function()
+test('a person without a portrait gets the category art', function()
+  reset { count = 6, config = { categories = { 'game' } } }
+  eq(require('stoa.picker').pick().art.id, 'game', 'category art')
+end)
+
+test('with no art files at all a pattern is generated', function()
   local dirs = reset()
   vim.fn.delete(dirs.bundled .. '/art', 'rf')
   local picker = require 'stoa.picker'
   local first, second = picker.pick(), picker.pick()
   assert(first.art.generated and second.art.generated, 'generated art used')
   assert(#first.art.large > 0 and #first.art.small > 0, 'art has lines')
-  assert(not vim.deep_equal(first.art.large, second.art.large), 'two quotes never share generated art')
-  eq(require('stoa.generate').art(first.id).large, first.art.large, 'same quote, same art')
+  assert(not vim.deep_equal(first.art.large, second.art.large), 'different quotes get different patterns')
 end)
 
 test('current is stable in a session and next changes it', function()
@@ -141,8 +149,7 @@ end)
 test('render picks art by height and wraps text', function()
   reset()
   local render = require 'stoa.render'
-  local quote = { text = ('word '):rep(40), author = 'A', work = 'W', art = { title = 'T', museum = 'M', large = { 'L', 'L', 'L', 'L' }, small = { 'S' } } }
-  eq(render.credit(quote), 'T · M', 'credit')
+  local quote = { text = ('word '):rep(40), author = 'A', work = 'W', art = { large = { 'L', 'L', 'L', 'L' }, small = { 'S' } } }
   eq(#render.art(quote, 10), 4, 'large art')
   eq(#render.art(quote, 2), 1, 'small art')
   eq(#render.art(quote, 0), 0, 'no art')
@@ -161,8 +168,7 @@ test('sync installs a newer pack from a file url', function()
   wait(function() return done ~= nil end)
   eq(done, true, 'sync result')
   eq(#require('stoa.store').quotes(), 9, 'quote count')
-  eq(require('stoa.store').art('q8').mark, 'remote', 'art for new quotes downloaded')
-  eq(vim.fn.filereadable(dirs.synced .. '/art/q2.json'), 0, 'art already bundled is not downloaded again')
+  eq(require('stoa.store').art('bust').mark, 'remote', 'changed art downloaded')
   eq(vim.fn.filereadable(dirs.synced .. '/index.json'), 1, 'index saved')
 end)
 
@@ -228,13 +234,34 @@ test('the float opens, cycles and closes', function()
   assert(vim.bo.filetype ~= 'stoa', 'closed')
 end)
 
-test('the built-in start screen renders', function()
-  reset()
+test('the splash shows only art and quote, and hides the bars', function()
+  local pressed = false
+  reset { config = { keys = { f = function() pressed = true end } } }
+  vim.o.showtabline, vim.o.laststatus = 2, 3
   require('stoa.dashboard').open()
   eq(vim.bo.filetype, 'stoa', 'filetype')
   local text = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), '\n')
   assert(text:find 'quote %d of pack 1', 'quote rendered')
+  assert(not text:find('next quote', 1, true) and not text:find('quit', 1, true), 'no key hints on screen')
+  eq({ vim.o.showtabline, vim.o.laststatus }, { 0, 0 }, 'bars hidden')
+  vim.api.nvim_feedkeys('f', 'x', false)
+  eq(pressed, true, 'hidden shortcut works')
+  local before = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  vim.api.nvim_feedkeys('n', 'x', false)
+  assert(not vim.deep_equal(before, vim.api.nvim_buf_get_lines(0, 0, -1, false)), 'n shows another quote')
   vim.cmd 'enew'
+  eq({ vim.o.showtabline, vim.o.laststatus }, { 2, 3 }, 'bars restored')
+end)
+
+test('bars turned on while the splash is open get hidden again', function()
+  reset()
+  vim.o.showtabline = 0
+  require('stoa.dashboard').open()
+  vim.o.showtabline = 2
+  vim.wait(200, function() return vim.o.showtabline == 0 end, 10)
+  eq(vim.o.showtabline, 0, 'tabline hidden again')
+  vim.cmd 'enew'
+  eq(vim.o.showtabline, 2, 'later value restored')
 end)
 
 print(('\n%d passed, %d failed'):format(passed, failed))

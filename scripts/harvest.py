@@ -6,7 +6,7 @@ import re
 import sys
 import time
 
-from lib import CACHE, api, load_quotes, normalize, quote_id, save_quotes, sources, today
+from lib import CACHE, ENABLED, api, load_quotes, normalize, quote_id, save_quotes, sources, today
 
 SKIP_SECTIONS = re.compile(
     r"misattribut|disputed|attributed|quotes? about|^about|external links|see also|cast|taglines?|dialogue|references|notes|"
@@ -166,7 +166,9 @@ def candidates(page_text, source):
         following = lines[number + 1] if number + 1 < len(lines) else ""
         translated = re.match(r"^\*\*([^*].*)$", following)
         whole_italic = raw.startswith("''") and not raw.startswith("'''") and raw.rstrip(" .").endswith("''")
-        if whole_italic and translated and not CITATION.match(strip_markup(translated.group(1))):
+        letters = [ch for ch in strip_markup(raw) if ch.isalpha()]
+        foreign = bool(letters) and sum(ch.isascii() for ch in letters) / len(letters) < 0.5
+        if (whole_italic or foreign) and translated and not CITATION.match(strip_markup(translated.group(1))):
             raw = translated.group(1).strip()
 
         bold = raw.startswith("'''") and raw.rstrip().rstrip(".!?\"”").endswith("'''")
@@ -205,7 +207,7 @@ def harvest(count, per_source, only, dry_run, seed):
     for quote in quotes:
         totals[quote.get("ref")] = totals.get(quote.get("ref"), 0) + 1
 
-    pool = [source for source in sources() if not only or source["page"] in only]
+    pool = [source for source in sources() if source["category"] in ENABLED and (not only or source["page"] in only)]
     names = [source["page"] for source in pool]
     prefetch(names if count is None else names[: max(40, count * 4)])
     pool.sort(key=lambda source: (totals.get("wikiquote:" + source["page"], 0), rng.random()))

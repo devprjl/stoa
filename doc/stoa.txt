@@ -14,9 +14,9 @@ CONTENTS                                                        *stoa-contents*
 ==============================================================================
 INTRODUCTION                                                *stoa-introduction*
 
-stoa.nvim shows a quote from philosophy, literature, games, film or TV, with
-a piece of braille art that belongs to that quote alone. Quotes do not repeat
-until you have seen the whole pack.
+stoa.nvim shows a quote with a piece of braille art: a portrait of the person
+who said it when the library has one, otherwise art for the category.
+Quotes do not repeat until you have seen the whole pack.
 
 The pack ships with the plugin, so it works offline. Once a day, in the
 background, the plugin checks GitHub for a newer pack. Network errors are
@@ -32,13 +32,14 @@ Calling setup is optional. These are the defaults: >lua
     require('stoa').setup {
       categories = nil,        -- nil for all, or a list such as
                                -- { 'philosophy', 'literature', 'game', 'movie', 'tv' }
-      dashboard = false,       -- true: show the built-in start screen
+      dashboard = false,       -- true: show the fullscreen splash on start
+      keys = {},               -- shortcuts on the splash, not shown on screen:
+                               -- { f = '<cmd>FzfLua files<CR>', q = '<cmd>qa<CR>' }
       quote_command = true,    -- false: do not create :Quote
       sync = {
         enabled = true,
         interval = 86400,      -- seconds between update checks
         timeout = 8,           -- seconds per request
-        art_buffer = 12,       -- art files fetched ahead of time
         urls = { ... },        -- where the pack is read from
       },
       view = { border = 'rounded', title = ' stoa ', wrap = 64 },
@@ -68,8 +69,8 @@ stoa.current()                                                 *stoa.current()*
     {
       id = 'a1b2c3d4', text = '...', author = '...', work = '...',
       category = 'philosophy',
-      art = { large = { ... }, small = { ... }, title = '...',
-              artist = '...', museum = '...', link = '...' },
+      art = { id = 'seneca', large = { ... }, small = { ... },
+              credit = '...' },
     }
 <
 stoa.next()          Pick a new quote and return it.           *stoa.next()*
@@ -80,8 +81,10 @@ stoa.show()  stoa.notify()  stoa.copy()  stoa.home()  stoa.sync()  stoa.info()
 ==============================================================================
 DASHBOARDS                                                    *stoa-dashboards*
 
-With `dashboard = true` the plugin draws its own start screen when Neovim
-opens without a file. To feed another dashboard, read |stoa.current()| in its
+With `dashboard = true` the plugin draws a fullscreen splash when Neovim opens
+without a file: only the art and the quote, with the tabline and statusline
+hidden until you leave it. `n` shows another quote. Add your own shortcuts
+with the `keys` option; they work on the splash but are not listed on it. To feed another dashboard, read |stoa.current()| in its
 config. The README has snippets for alpha-nvim, snacks.nvim and
 dashboard-nvim.
 
@@ -91,17 +94,15 @@ HIGHLIGHTS                                                    *stoa-highlights*
     StoaArt       the art              (links to Function)
     StoaQuote     the quote            (links to Normal)
     StoaAuthor    the attribution      (links to Comment)
-    StoaHint      credits and key hints (links to NonText)
+    StoaHint      key hints in the float (links to NonText)
     StoaBorder    float border         (links to FloatBorder)
     StoaTitle     float title          (links to FloatTitle)
 
 ==============================================================================
 WHERE QUOTES COME FROM                                              *stoa-data*
 
-Quote text is taken from Wikiquote. Each artwork is a public-domain piece
-from the Art Institute of Chicago, the Cleveland Museum of Art or the
-Metropolitan Museum of Art, converted to braille; each is used for one quote
-only. The whole pack is plain JSON under `data/` and can be used by other
-projects.
+Quote text is taken from Wikiquote. Portraits are made from public-domain
+images on Wikimedia Commons and are credited in each art file. The whole pack
+is plain JSON under `data/` and can be used by other projects.
 
  vim:tw=78:ts=8:ft=help:norl:

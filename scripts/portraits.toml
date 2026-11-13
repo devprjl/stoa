@@ -1,0 +1,72 @@
+# One portrait per person. Every quote by that person reuses it.
+# Only public-domain images. 'mode' is how the image is converted:
+#   tone     keeps light and shade (best for dark backgrounds)
+#   outline  removes the background first (best for light or busy backgrounds)
+
+[[portrait]]
+id = "marcus-aurelius"
+name = "Marcus Aurelius"
+credit = "Bust of Marcus Aurelius, Glyptothek Munich (public domain photo), Wikimedia Commons"
+
+[[portrait]]
+id = "seneca"
+name = "Seneca"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Peter_Paul_Rubens_-_Dying_Seneca_%28cropped%29_portrait.jpg/500px-Peter_Paul_Rubens_-_Dying_Seneca_%28cropped%29_portrait.jpg"
+mode = "outline"
+credit = "Peter Paul Rubens - Dying Seneca (cropped) portrait.jpg (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "epictetus"
+name = "Epictetus"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg/500px-Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg"
+mode = "outline"
+credit = "Epicteti Enchiridion Latinis versibus adumbratum (Oxford 1715) frontispiece (cropped).jpg (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "socrates"
+name = "Socrates"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Socrates_Louvre.jpg/500px-Socrates_Louvre.jpg"
+mode = "outline"
+credit = "Socrates Louvre.jpg (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "plato"
+name = "Plato"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Plato_Silanion_Musei_Capitolini_MC1377.png/500px-Plato_Silanion_Musei_Capitolini_MC1377.png"
+mode = "tone"
+credit = "Plato Silanion Musei Capitolini MC1377.png (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "aristotle"
+name = "Aristotle"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/500px-Aristotle_Altemps_Inv8575.jpg"
+mode = "outline"
+credit = "Aristotle Altemps Inv8575.jpg (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "confucius"
+name = "Confucius"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Konfuzius-1770.jpg/500px-Konfuzius-1770.jpg"
+mode = "outline"
+credit = "Konfuzius-1770.jpg (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "lao-tzu"
+name = "Lao Tzu"
+image = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Lao_Tzu_-_Project_Gutenberg_eText_15250.jpg"
+mode = "outline"
+credit = "Lao Tzu - Project Gutenberg eText 15250.jpg (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "friedrich-nietzsche"
+name = "Friedrich Nietzsche"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/500px-Nietzsche187a.jpg"
+mode = "tone"
+credit = "Nietzsche187a.jpg (Public domain), Wikimedia Commons"
+
+[[portrait]]
+id = "immanuel-kant"
+name = "Immanuel Kant"
+image = "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Immanuel_Kant_-_Gemaelde_1.jpg/500px-Immanuel_Kant_-_Gemaelde_1.jpg"
+mode = "outline"
+credit = "Immanuel Kant - Gemaelde 1.jpg (Public domain), Wikimedia Commons"

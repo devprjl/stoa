@@ -7,7 +7,7 @@ on:
     inputs:
       count:
         description: How many quotes to add
-        default: "5"
+        default: "3"
 
 permissions:
   contents: write
@@ -24,13 +24,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pillow
       - name: Harvest new quotes
-        run: python scripts/harvest.py --count "${{ inputs.count || '5' }}"
-      - name: Give each new quote its own artwork
-        run: python scripts/art.py --workers 2
+        run: python scripts/harvest.py --count "${{ inputs.count || '3' }}"
       - name: Rebuild the pack
-        run: python scripts/build.py --prune
+        run: python scripts/build.py
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"

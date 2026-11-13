@@ -16,6 +16,7 @@ ART = DATA / "art"
 CACHE = ROOT / "scripts" / ".cache"
 USER_AGENT = "stoa-pack-builder/1.0"
 CATEGORIES = ("philosophy", "literature", "game", "movie", "tv")
+ENABLED = ("philosophy",)
 
 
 def fetch(url, binary=False, attempts=6, headers=None):
@@ -44,6 +45,11 @@ def sources():
 def normalize(text):
     text = unicodedata.normalize("NFKD", text).lower()
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
+
+
+def slug(name):
+    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", plain).strip("-")
 
 
 def quote_id(text):

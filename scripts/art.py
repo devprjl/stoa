@@ -1,135 +1,30 @@
 import argparse
-import concurrent.futures
 import io
 import json
-import re
 import sys
-import threading
 import time
-import urllib.parse
+import tomllib
 
-from PIL import Image, ImageChops, ImageFilter, ImageOps
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageOps
 
-from lib import ART, CACHE, USER_AGENT, fetch, load_quotes
-from themes import terms_for
+from lib import ART, CACHE, ROOT, fetch
 
 SIZES = {"large": (60, 30), "small": (40, 20)}
 DOTS = ((0, 0, 0x01), (0, 1, 0x02), (0, 2, 0x04), (1, 0, 0x08), (1, 1, 0x10), (1, 2, 0x20), (0, 3, 0x40), (1, 3, 0x80))
 BLANK = chr(0x2800)
-SKIP_TITLES = re.compile(r"\b(nude|naked|torso|bathers?|odalisque|erotic)\b", re.I)
-SKIP_KINDS = re.compile(r"textile|weaving|lace|embroider|carpet|manuscript|calligraph|document|book|album|fragment|sampler|tapestry|coin|seal|wallpaper", re.I)
-HEADERS = {"AIC-User-Agent": USER_AGENT}
 
 
-def get_json(url, headers=None):
-    return json.loads(fetch(url, headers=headers))
-
-
-def cached(name, producer):
-    path = CACHE / "museum" / (re.sub(r"[^\w.-]+", "_", name) + ".json")
-    if path.exists():
-        return json.loads(path.read_text())
-    value = producer()
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value))
-    time.sleep(0.2)
-    return value
-
-
-def search_aic(term, page):
-    def run():
-        query = urllib.parse.urlencode(
-            {"q": term, "query[term][is_public_domain]": "true", "fields": "id,title,artist_title,date_display,image_id,classification_title", "limit": 40, "page": page + 1}
-        )
-        rows = get_json("https://api.artic.edu/api/v1/artworks/search?" + query, HEADERS).get("data", [])
-        return [
-            {
-                "source": f"aic:{row['id']}",
-                "title": row.get("title"),
-                "artist": row.get("artist_title"),
-                "date": row.get("date_display"),
-                "kind": row.get("classification_title") or "",
-                "museum": "Art Institute of Chicago",
-                "link": f"https://www.artic.edu/artworks/{row['id']}",
-                "image": f"https://www.artic.edu/iiif/2/{row['image_id']}/full/400,/0/default.jpg",
-            }
-            for row in rows
-            if row.get("image_id")
-        ]
-
-    return cached(f"aic_{term}_{page}", run)
-
-
-def search_cma(term, page):
-    def run():
-        query = urllib.parse.urlencode({"q": term, "cc0": 1, "has_image": 1, "limit": 40, "skip": page * 40, "fields": "id,title,creators,creation_date,images,type,url"})
-        rows = get_json("https://openaccess-api.clevelandart.org/api/artworks/?" + query).get("data", [])
-        found = []
-        for row in rows:
-            image = ((row.get("images") or {}).get("web") or {}).get("url")
-            if not image:
-                continue
-            creators = row.get("creators") or []
-            artist = re.sub(r"\s*\(.*$", "", creators[0].get("description", "")) if creators else None
-            found.append(
-                {
-                    "source": f"cma:{row['id']}",
-                    "title": row.get("title"),
-                    "artist": artist or None,
-                    "date": row.get("creation_date"),
-                    "kind": row.get("type") or "",
-                    "museum": "Cleveland Museum of Art",
-                    "link": row.get("url"),
-                    "image": image,
-                }
-            )
-        return found
-
-    return cached(f"cma_{term}_{page}", run)
-
-
-def search_met(term, page):
-    def run():
-        query = urllib.parse.urlencode({"q": term, "hasImages": "true", "isPublicDomain": "true"})
-        return get_json("https://collectionapi.metmuseum.org/public/collection/v1.1/search?" + query).get("objectIDs") or []
-
-    ids = cached(f"met_{term}", run)
-    return [{"source": f"met:{object_id}", "lazy": object_id, "kind": "", "title": None} for object_id in ids[page * 15 : page * 15 + 15]]
-
-
-def resolve_met(candidate):
-    def run():
-        row = get_json(f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{candidate['lazy']}")
-        if not row.get("isPublicDomain") or not row.get("primaryImageSmall"):
-            return None
-        return {
-            "source": candidate["source"],
-            "title": row.get("title"),
-            "artist": row.get("artistDisplayName") or None,
-            "date": row.get("objectDate"),
-            "kind": (row.get("classification") or "") + " " + (row.get("objectName") or ""),
-            "museum": "The Metropolitan Museum of Art",
-            "link": row.get("objectURL"),
-            "image": row["primaryImageSmall"],
-        }
-
-    return cached(f"metobj_{candidate['lazy']}", run)
-
-
-MUSEUMS = (search_aic, search_cma, search_met)
-
-
-def braille(bitmap, columns, rows):
-    pixels = bitmap.load()
+def braille(bits, columns, rows):
+    pixels = bits.load()
     lines = []
     for row in range(rows):
         line = ""
         for column in range(columns):
-            bits = 0
+            value = 0
             for dx, dy, bit in DOTS:
                 if pixels[column * 2 + dx, row * 4 + dy]:
-                    bits |= bit
-            line += chr(0x2800 + bits)
+                    value |= bit
+            line += chr(0x2800 + value)
         lines.append(line)
     return trim(lines)
 
@@ -146,7 +41,39 @@ def trim(lines):
     return [line[left:right].ljust(right - left, BLANK) for line in lines]
 
 
-def background(gray):
+def bitmap(gray, columns, rows, dither=True):
+    width, height = columns * 2, rows * 4
+    fitted = ImageOps.contain(gray, (width, height), Image.LANCZOS)
+    board = Image.new("L", (width, height), 0)
+    board.paste(fitted, ((width - fitted.width) // 2, (height - fitted.height) // 2))
+    if dither:
+        return board.convert("1", dither=Image.FLOYDSTEINBERG)
+    return board.point(lambda value: 255 if value > 110 else 0).convert("1", dither=Image.NONE)
+
+
+def edge_level(gray):
+    small = gray.resize((64, 64))
+    pixels = small.load()
+    edge = sorted([pixels[x, y] for x in range(64) for y in (0, 1, 62, 63)] + [pixels[x, y] for y in range(64) for x in (0, 1, 62, 63)])
+    return edge[len(edge) // 2]
+
+
+def crop(image, box):
+    if not box:
+        return image
+    width, height = image.size
+    return image.crop((int(box[0] * width), int(box[1] * height), int(box[2] * width), int(box[3] * height)))
+
+
+def tone(image):
+    gray = ImageOps.autocontrast(ImageOps.grayscale(image), cutoff=2)
+    if edge_level(gray) > 135:
+        gray = ImageOps.invert(gray)
+    return gray.point(lambda value: 0 if value < 45 else value)
+
+
+def outline(image):
+    gray = ImageOps.autocontrast(ImageOps.grayscale(image), cutoff=1)
     width, height = gray.size
     margin = max(2, width // 16)
     pixels = gray.load()
@@ -154,191 +81,92 @@ def background(gray):
     for y in range(height):
         edge = sorted([pixels[x, y] for x in range(margin)] + [pixels[width - 1 - x, y] for x in range(margin)])
         column.putpixel((0, y), edge[len(edge) // 2])
-    return column.resize((width, height)).filter(ImageFilter.GaussianBlur(max(2, height // 40)))
-
-
-def prepare(image):
-    if image.height > image.width * 1.5:
-        image = ImageOps.fit(image, (image.width, int(image.width * 1.35)), Image.LANCZOS, centering=(0.5, 0.25))
-    elif image.width > image.height * 1.7:
-        image = ImageOps.fit(image, (int(image.height * 1.6), image.height), Image.LANCZOS, centering=(0.5, 0.5))
-    gray = ImageOps.autocontrast(ImageOps.grayscale(image), cutoff=1)
-    distance = ImageOps.autocontrast(ImageChops.difference(gray, background(gray)), cutoff=1)
+    backdrop = column.resize((width, height)).filter(ImageFilter.GaussianBlur(max(2, height // 40)))
+    distance = ImageOps.autocontrast(ImageChops.difference(gray, backdrop), cutoff=1)
     return distance.point(lambda value: 0 if value < 70 else min(255, int(value * 1.15)))
 
 
-def bitmap(gray, columns, rows):
-    width, height = columns * 2, rows * 4
-    fitted = ImageOps.contain(gray, (width, height), Image.LANCZOS)
-    board = Image.new("L", (width, height), 0)
-    board.paste(fitted, ((width - fitted.width) // 2, (height - fitted.height) // 2))
-    return board.convert("1", dither=Image.FLOYDSTEINBERG)
+MODES = {"tone": tone, "outline": outline}
 
 
-def readable(bits):
-    width, height = bits.size
-    box = bits.getbbox()
-    if not box or (box[2] - box[0]) < width * 0.35 or (box[3] - box[1]) < height * 0.5:
-        return False
-    region = bits.crop(box)
-    pixels = region.load()
-    region_width, region_height = region.size
-    total = sum(1 for x in range(region_width) for y in range(region_height) if pixels[x, y])
-    density = total / (region_width * region_height)
-    if not 0.12 <= density <= 0.58:
-        return False
-    cells = []
-    for row in range(6):
-        for column in range(6):
-            x0, x1 = column * region_width // 6, (column + 1) * region_width // 6
-            y0, y1 = row * region_height // 6, (row + 1) * region_height // 6
-            lit = sum(1 for x in range(x0, x1) for y in range(y0, y1) if pixels[x, y])
-            cells.append(lit / max(1, (x1 - x0) * (y1 - y0)))
-    mean = sum(cells) / len(cells)
-    spread = (sum((cell - mean) ** 2 for cell in cells) / len(cells)) ** 0.5
-    return spread >= 0.14
+def convert(image, mode="tone", box=None):
+    gray = MODES[mode](crop(image.convert("RGB"), box))
+    return {name: braille(bitmap(gray, columns, rows), columns, rows) for name, (columns, rows) in SIZES.items()}
 
 
-def convert(raw):
-    image = Image.open(io.BytesIO(raw)).convert("RGB")
-    if min(image.size) < 200:
-        return None
-    gray = prepare(image)
-    large = bitmap(gray, *SIZES["large"])
-    if not readable(large):
-        return None
-    return {"large": braille(large, *SIZES["large"]), "small": braille(bitmap(gray, *SIZES["small"]), *SIZES["small"])}
+def temple():
+    size = 480
+    image = Image.new("L", (size, size), 0)
+    draw = ImageDraw.Draw(image)
+    draw.polygon([(40, 150), (240, 50), (440, 150)], fill=255)
+    draw.polygon([(110, 138), (240, 76), (370, 138)], fill=0)
+    draw.ellipse((222, 96, 258, 132), fill=255)
+    draw.rectangle((40, 158, 440, 182), fill=255)
+    for index in range(6):
+        left = 62 + index * 68
+        draw.rectangle((left - 6, 190, left + 42, 200), fill=255)
+        draw.rectangle((left, 200, left + 36, 370), fill=255)
+        for flute in range(1, 3):
+            draw.rectangle((left + flute * 12 - 1, 206, left + flute * 12 + 1, 364), fill=0)
+        draw.rectangle((left - 6, 370, left + 42, 380), fill=255)
+    draw.rectangle((30, 388, 450, 404), fill=255)
+    draw.rectangle((14, 412, 466, 428), fill=255)
+    return image
 
 
-def image_bytes(candidate):
-    path = CACHE / "images" / (candidate["source"].replace(":", "_") + ".jpg")
-    if path.exists():
-        return path.read_bytes()
-    raw = fetch(candidate["image"], binary=True, headers=HEADERS if candidate["source"].startswith("aic") else None)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(raw)
-    return raw
+DRAWN = {"philosophy": ("Temple", temple), "default": ("Temple", temple)}
 
 
-def load_set(name):
-    path = CACHE / name
-    return set(json.loads(path.read_text())) if path.exists() else set()
-
-
-def save_set(name, values):
-    CACHE.mkdir(parents=True, exist_ok=True)
-    (CACHE / name).write_text(json.dumps(sorted(values)))
-
-
-def used_sources():
-    return {json.loads(path.read_text()).get("source") for path in ART.glob("*.json")}
-
-
-LOCK = threading.Lock()
-
-
-def claim(source, used, rejected):
-    with LOCK:
-        if source in used or source in rejected:
-            return False
-        used.add(source)
-        return True
-
-
-def release(source, used, rejected):
-    with LOCK:
-        used.discard(source)
-        rejected.add(source)
-
-
-def match(quote, used, rejected, attempts):
-    seed = int(quote["id"], 16)
-    tries = 0
-    for term in terms_for(quote, seed):
-        for offset in range(len(MUSEUMS)):
-            search = MUSEUMS[(seed + offset) % len(MUSEUMS)]
-            for page in range(3):
-                try:
-                    found = search(term, page)
-                except Exception as error:
-                    print(f"      search failed ({search.__name__} {term!r}): {error}", file=sys.stderr)
-                    break
-                if not found:
-                    break
-                for candidate in found:
-                    if tries >= attempts:
-                        return None
-                    if not claim(candidate["source"], used, rejected):
-                        continue
-                    sizes = None
-                    try:
-                        if "lazy" in candidate:
-                            candidate = resolve_met(candidate) or candidate
-                        title = candidate.get("title") or ""
-                        named = term == quote.get("author")
-                        fits = "image" in candidate and not SKIP_KINDS.search(candidate["kind"]) and not SKIP_TITLES.search(title)
-                        if fits and (not named or term.split()[-1].lower() in title.lower()):
-                            tries += 1
-                            sizes = convert(image_bytes(candidate))
-                    except Exception:
-                        sizes = None
-                    if not sizes:
-                        release(candidate["source"], used, rejected)
-                        continue
-                    return {"term": term, **candidate, **sizes}
-    return None
-
-
-def make(quote, used, rejected, attempts):
-    target = ART / f"{quote['id']}.json"
-    found = match(quote, used, rejected, attempts)
-    if not found:
-        print(f"none  {quote['id']}  {quote['text'][:50]}", file=sys.stderr)
-        return 0
-    record = {
-        "id": quote["id"],
-        "title": found["title"] or "Untitled",
-        "artist": found["artist"] or "Unknown artist",
-        "date": found["date"] or "",
-        "museum": found["museum"],
-        "link": found["link"],
-        "source": found["source"],
-        "large": found["large"],
-        "small": found["small"],
-    }
-    target.write_text(json.dumps(record, ensure_ascii=False, indent=1) + "\n")
-    print(f"ok    {quote['id']}  [{found['term']}]  {record['title'][:50]} ({found['source']})", file=sys.stderr)
-    return 1
-
-
-def build(limit, only, attempts, workers):
+def save(art_id, name, kind, credit, sizes):
     ART.mkdir(parents=True, exist_ok=True)
-    used, rejected = used_sources(), load_set("rejected.json")
-    todo = [quote for quote in load_quotes() if (not only or quote["id"] in only) and not (ART / f"{quote['id']}.json").exists()]
-    if limit is not None:
-        todo = todo[:limit]
-    made = 0
-    with concurrent.futures.ThreadPoolExecutor(workers) as pool:
-        for count, result in enumerate(pool.map(lambda quote: make(quote, used, rejected, attempts), todo), 1):
-            made += result
-            if count % 25 == 0:
-                with LOCK:
-                    save_set("rejected.json", rejected)
-    save_set("rejected.json", rejected)
-    print(f"made {made} art files, {len(todo) - made} quotes still without art", file=sys.stderr)
-    return made
+    record = {"id": art_id, "name": name, "kind": kind, "credit": credit, **sizes}
+    (ART / f"{art_id}.json").write_text(json.dumps(record, ensure_ascii=False, indent=1) + "\n")
+
+
+def portraits():
+    with open(ROOT / "scripts" / "portraits.toml", "rb") as handle:
+        return tomllib.load(handle).get("portrait", [])
+
+
+def source_image(entry):
+    cached = CACHE / "portraits" / f"{entry['id']}.img"
+    if not cached.exists():
+        cached.parent.mkdir(parents=True, exist_ok=True)
+        cached.write_bytes(fetch(entry["image"], binary=True))
+        time.sleep(1)
+    return Image.open(io.BytesIO(cached.read_bytes()))
+
+
+def build(only, force):
+    for art_id, (name, draw) in DRAWN.items():
+        if (only and art_id not in only) or ((ART / f"{art_id}.json").exists() and not force):
+            continue
+        image = draw()
+        sizes = {size: braille(bitmap(image, columns, rows, dither=False), columns, rows) for size, (columns, rows) in {"large": (44, 22), "small": (30, 15)}.items()}
+        save(art_id, name, "category", "Drawn for stoa.nvim", sizes)
+        print(f"ok    {art_id}", file=sys.stderr)
+    for entry in portraits():
+        if (only and entry["id"] not in only) or ((ART / f"{entry['id']}.json").exists() and not force):
+            continue
+        if "image" not in entry:
+            continue
+        try:
+            sizes = convert(source_image(entry), entry.get("mode", "tone"), entry.get("crop"))
+        except Exception as error:
+            print(f"fail  {entry['id']}: {error}", file=sys.stderr)
+            continue
+        save(entry["id"], entry["name"], "portrait", entry["credit"], sizes)
+        print(f"ok    {entry['id']}", file=sys.stderr)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Give every quote its own museum artwork, converted to braille")
-    parser.add_argument("--limit", type=int, default=None, help="stop after this many new art files")
-    parser.add_argument("--only", action="append", help="quote id to process (repeatable)")
-    parser.add_argument("--attempts", type=int, default=10, help="most images to try for one quote")
-    parser.add_argument("--workers", type=int, default=6)
-    parser.add_argument("--show", help="print the art for this quote id")
+    parser = argparse.ArgumentParser(description="Build the art library: one portrait per person in portraits.toml, plus category art")
+    parser.add_argument("--only", action="append", help="art id to build (repeatable)")
+    parser.add_argument("--force", action="store_true", help="rebuild art that already exists")
+    parser.add_argument("--show", help="print the art with this id")
     arguments = parser.parse_args()
     if arguments.show:
         record = json.loads((ART / f"{arguments.show}.json").read_text())
-        print("\n".join(record["large"]), "\n\n" + "\n".join(record["small"]), f"\n{record['title']} / {record['artist']} / {record['museum']}")
+        print("\n".join(record["large"]), "\n\n" + "\n".join(record["small"]), "\n" + record["credit"])
     else:
-        build(arguments.limit, arguments.only, arguments.attempts, arguments.workers)
+        build(arguments.only, arguments.force)

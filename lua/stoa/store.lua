@@ -56,13 +56,6 @@ function M.art(id)
   return nil
 end
 
-function M.has_art(id)
-  for _, dir in ipairs { M.synced(), M.bundled() } do
-    if vim.fn.filereadable(('%s/art/%s.json'):format(dir, id)) == 1 then return true end
-  end
-  return false
-end
-
 function M.state() return M.read(M.state_path 'state.json') or {} end
 
 function M.update_state(changes)
