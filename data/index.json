@@ -1,10 +1,10 @@
 {
- "version": 2,
- "updated": "2026-11-14",
+ "version": 3,
+ "updated": "2026-11-15",
  "schema": 1,
- "quotes": 13,
+ "quotes": 16,
  "categories": {
-  "philosophy": 13,
+  "philosophy": 16,
   "literature": 0,
   "game": 0,
   "movie": 0,
